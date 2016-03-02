@@ -2,7 +2,7 @@
 layout:     post
 title:      "我的独立博客"
 subtitle:   "第一篇"
-date:       2016-03-02 12:00:00
+date:       2016-03-02
 author:     "Candycat"
 header-img: "img/post-bg-2015.jpg"
 tags:
