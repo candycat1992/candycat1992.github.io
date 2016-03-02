@@ -24,7 +24,7 @@ weibo_username:     2776591135
 
 
 # Build settings
-highlighter: pygments
+highlighter: rouge
 permalink: pretty
 paginate: 10
 exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
