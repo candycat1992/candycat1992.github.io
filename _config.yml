@@ -12,9 +12,11 @@ baseurl: ""                             # for example, '/blog' if your blog host
 
 # SNS settings
 RSS: false
-weibo_username:     2776591135
+
 zhihu_username:     lele-feng-15
 github_username:    candycat1992
+douban_username:    69635011
+weibo_username:     2776591135
 #twitter_username:  huxpro
 #facebook_username:  huxpro
 
@@ -75,19 +77,19 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
     {
-        title: "Hux Blog",
-        href: "http://huangxuan.me"
+        title: "iq Blog",
+        href: "http://www.iquilezles.org/www/index.htm"
     },{
-        title: "Foo",
-        href: "#"
+        title: "Aras Blog",
+        href: "http://aras-p.info/blog/"
     },{
-        title: "Bar",
-        href: "#"
+        title: "scrawk Blog",
+        href: "http://scrawkblog.com/"
     },{
-        title: "Example Friends",
-        href: "#"
+        title: "雨松MOMO的Blog",
+        href: "http://www.xuanyusong.com/"
     },{
-        title: "It helps SEO",
-        href: "#"
+        title: "云风的Blog",
+        href: "http://blog.codingnow.com/"
     }
 ]
