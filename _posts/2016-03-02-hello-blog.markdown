@@ -6,7 +6,7 @@ date:       2016-03-02
 author:     "Candycat"
 header-img: "img/post-bg-2015.jpg"
 tags:
-    - 生活
+    - 闲谈
 ---
 
 ## 写在前面
