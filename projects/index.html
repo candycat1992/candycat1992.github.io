@@ -1,11 +1,11 @@
 ---
-layout: default
+layout: page
 title: "Projects"
 description: "What I did"
-header-img: "img/about-bg.jpg"
+header-img: "img/projects-bg.jpg"
 ---
 
-<!-- Page Header -->
+<!-- <!-- Page Header -->
 <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
     <div class="container">
         <div class="row">
@@ -17,168 +17,185 @@ header-img: "img/about-bg.jpg"
             </div>
         </div>
     </div>
-</header>
+</header> -->
 
 <div class="container">
     <div class="row">
         <div class="col-lg-10 col-lg-offset-1 col-md-10 col-md-offset-1">
             <!-- {{content}} -->
-            <div class = "panel panel-success">
-               <div class = "panel-heading">
-                  <h3 class = "panel-title">交互式2D到3D卡通建模系统</h3>
-               </div>
-               
-               <div class = "panel-body">
-                    <div class="row">
-                        <div class="col-md-4 col-xs-12 center">
-                             <a href="http://book.douban.com/subject/4864832/">
-                                 <img src="/img/in-projects/2d-to-3d.jpg" class="img-thumbnail">
-                             </a>
-                        </div>
-                        <div class="col-md-8 col-xs-12 post-container">
-                            一个快速将2D卡通图片转化成3D模型的系统，可以让非专业人员或儿童更加轻松地来创建自定义的3D模型。以该项目为背景的论文发表在了Edutainment 2016国际会议上。
+            <div class = "panel panel-default">   
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>论文</h1>
+                            </div>
                         </div>
                     </div>
-               </div>
+                </div>    
+
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 center">
+                                 <a href="http://book.douban.com/subject/4864832/">
+                                     <img src="/img/in-projects/2d-to-3d.jpg" class="img-thumbnail">
+                                 </a>
+                            </div>
+                            <div class="col-md-8 col-xs-12 post-container">
+                                <p>
+                                    <b>交互式2D到3D卡通建模系统</b></br>
+                                    冯乐乐，杨旭波，肖双久，姜帆</br>
+                                    <i>The 10th International Conference on E-Learning and Games (Edutainment 2016)</i>
+                                </p>
+                                <p>本文提出了一个快速将2D卡通图片转化成3D模型的系统，可以让非专业人员或儿童更加轻松地来创建自定义的3D模型。我们的系统使用了基于Poisson等式来生成三维模型的方法，它解决前人工作中许多对于建模类型的约束问题。我们还提出了一种新的纹理生成方法，来为3D模型的正反面都生成合适的纹理，从而得到用原始2D卡通图片着色的风格化卡通模型。结果显示，我们的方法既可以大大简化传统的建模软件的建模流程。</p>
+                                <a href="https://vimeo.com/157542775" target="_blank" class="btn btn-default btn-sm" role="button">Video</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 center">
+                                <img src="/img/in-projects/mobile-tracking.jpg" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-8 col-xs-12 post-container">
+                                <p>
+                                    <b>基于移动平台的实时物体追踪系统</b></br>
+                                    冯乐乐，杨旭波</br>
+                                    <i>上海交通大学2014届优异学士学位论文</i>
+                                </p>
+                                <p>本文分析了现有的基于自然特征的物体识别和追踪技术,设计并实现了一款基于移动终端的实时物体追踪系统,以用于增强现实的应用。我们通过实现一个使用FAST算子修改后的SIFT算法,来实现移动终端的物体识别。姿态估计则从识别出的原目标和帧图像的匹配关系得到变换矩阵,以此来显示三维物体。除此之外,我们还实现了一个PC端的管理工具,用于统 一管理所有预处理的目标图片。我们还对系统的健壮性和性能等方面进行了评估,并实现了一个在现实生活中的演示应用。
+                                以该项目为背景的论文获得了“。</p>
+                                <a href="https://vimeo.com/157533815" target="_blank" class="btn btn-default btn-sm" role="button">Video</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
 
-            <div class = "panel panel-success">
-               <div class = "panel-heading">
-                  <h3 class = "panel-title">游戏《欢乐树》</h3>
-               </div>
-               
-               <div class = "panel-body">
-                    <div class="row">
-                        <div class="col-md-4 col-xs-12 center">
-                             <a href="http://book.douban.com/subject/4864832/">
-                                 <img src="/img/in-projects/happy-tree.jpg" class="img-thumbnail">
-                             </a>
-                        </div>
-                        <div class="col-md-8 col-xs-12 post-container">
-                            独立开发的移动益智休闲游戏， 使用Unity3D开发。
+            <div class = "panel panel-default">   
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h1>项目</h1>
+                            </div>
                         </div>
                     </div>
-               </div>
-            </div>
+                </div>
 
-            <div class = "panel panel-success">
-               <div class = "panel-heading">
-                  <h3 class = "panel-title">基于移动平台的实时物体追踪系统</h3>
-               </div>
-               
-               <div class = "panel-body">
-                    <div class="row">
-                        <div class="col-md-4 col-xs-12 center">
-                             <a href="http://book.douban.com/subject/4864832/">
-                                 <img src="/img/in-projects/mobile-tracking.jpg" class="img-thumbnail">
-                             </a>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 center">
+                                <img src="/img/in-projects/happy-tree.jpg" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-8 col-xs-12 post-container">
+                                <p><b>游戏《欢乐树》</b></p>
+                                <p><i>开发工具：Unity3D, C#</i></p>
+                                <p>玩家需要帮助让欢乐树开满花朵。花朵由6种bubble构成，每种bubble有两种属性，速度（移动速度）和力量（生长速度），且不同类型之间属性相克，例如红->绿->蓝->红。玩家在每个关卡需要让己方的bubble占领所有区域即可获胜。期间，玩家可以利用通过每关得到的star升级属性或解锁新的bubble。</p>
+                                <a href="https://vimeo.com/157530217" target="_blank" class="btn btn-default btn-sm" role="button">Video</a>
+                            </div>
                         </div>
-                        <div class="col-md-8 col-xs-12 post-container">
-                            基于移动平台的实时物体追踪系统，用于某些增强现实的应用。
-                            以该项目为背景的论文获得了“上海交通大学2014届优异学士学位论文。
-                        </div>
-                    </div>
-               </div>
-            </div>
+                    </li>
 
-            <div class = "panel panel-success">
-               <div class = "panel-heading">
-                  <h3 class = "panel-title">进击的忍者</h3>
-               </div>
-               
-               <div class = "panel-body">
-                    <div class="row">
-                        <div class="col-md-4 col-xs-12 center">
-                             <a href="http://book.douban.com/subject/4864832/">
-                                 <img src="/img/in-projects/ninja.jpg" class="img-thumbnail">
-                             </a>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 center">
+                                <img src="/img/in-projects/sampling.jpg" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-8 col-xs-12 post-container">
+                                <p><b>裸眼3D实时渲染系统</b></p>
+                                <p><i>开发工具：Unity3D, Shader, C#</i></p>
+                                <p>本项目在Unity中通过输入游戏画面和场景的深度纹理来实时渲染成适合于裸眼3D的立体效果。支持4k分辨率，支持Windows平台。本项目通过GPU加速技术将算法效率提高了130%，达到了实时速度。</p>
+                            </div>
                         </div>
-                        <div class="col-md-8 col-xs-12 post-container">
-                            在DeNA中国实习期间参与开发的多平台手机游戏。
-                        </div>
-                    </div>
-               </div>
-            </div>
+                    </li>
 
-            <div class = "panel panel-success">
-               <div class = "panel-heading">
-                  <h3 class = "panel-title">游戏《Let's Fly》</h3>
-               </div>
-               
-               <div class = "panel-body">
-                    <div class="row">
-                        <div class="col-md-4 col-xs-12 center">
-                             <a href="http://book.douban.com/subject/4864832/">
-                                 <img src="/img/in-projects/let-us-fly.jpg" class="img-thumbnail">
-                             </a>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 center">
+                                 <a href="http://book.douban.com/subject/4864832/">
+                                     <img src="/img/in-projects/ninja.jpg" class="img-thumbnail">
+                                 </a>
+                            </div>
+                            <div class="col-md-8 col-xs-12 post-container">
+                                <p><b>手游《进击的忍者》（原名《忍者天下》）</b></p>
+                                <p><i>开发工具：Unity3D, C#</i></p>
+                                <p>《进击的忍者》是梦宝谷倾情推出的全3D超萌动漫手游。游戏继承了热门动漫火影忍者的剧情，同时也融入了很多现代化的游戏玩法。有忍村建设、忍者养成、忍术合成和搭配、装备、任务、副本、竞技、好友等。该项目是2013年在DeNA中国实习期间参与开发的多平台手机游戏。独立开发了新版本中庄园、忍炼坊等模块的界面/逻辑功能；优化原有的战斗系统表现，优化和开发排行榜等功能；参与日本版的制作。</p>
+                                <a href="https://vimeo.com/157530217" target="_blank" class="btn btn-default btn-sm" role="button">Video</a>
+                            </div>
                         </div>
-                        <div class="col-md-8 col-xs-12 post-container">
-                            基于手机平台的飞行类游戏，使用Unity3D开发。
-                            获得“Google 2013年第四届Android应用开发中国大学生挑战赛”本科院校组全国三等奖；获得2013年上海交通大学软件学院软件展示会一等奖。
-                        </div>
-                    </div>
-               </div>
-            </div>
+                    </li>
 
-            <div class = "panel panel-success">
-               <div class = "panel-heading">
-                  <h3 class = "panel-title">医疗康复系列游戏</h3>
-               </div>
-               
-               <div class = "panel-body">
-                    <div class="row">
-                        <div class="col-md-4 col-xs-12 center">
-                             <a href="http://book.douban.com/subject/4864832/">
-                                 <img src="/img/in-projects/recovery-game.jpg" class="img-thumbnail">
-                             </a>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 center">
+                                <img src="/img/in-projects/let-us-fly.jpg" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-8 col-xs-12 post-container">
+                                <p><b>游戏《Let's Fly》</b></p>
+                                <p><i>开发工具：Unity3D, C#</i></p>
+                                <p>Let's Fly是一款飞行类游戏。故事开始于火星上的Dark空间基地,特工James 接到上级任务,需要将一份秘密文件递交到地球上的一位高级长官,于是他驾驶飞船开始了冒险经历。在冒险中,玩家需要通过了森林和宇宙两个场景,共 10 个关卡,最终将文件送到地球。玩家可以通过触摸屏幕来控制飞行器的移动、攻击火星极地组织派来的橡皮人, 并拾取钻石。玩家可以使用钻石购买道具来进行回血、攻击等功能。该项目获得“谷歌2013年第四届Android应用开发中国大学生挑战赛”本科院校组全国三等奖；获得2013年上海交通大学软件学院软件展示会一等奖。</p>
+                                <a href="https://vimeo.com/157530217" target="_blank" class="btn btn-default btn-sm" role="button">Video</a>
+                            </div>
                         </div>
-                        <div class="col-md-8 col-xs-12 post-container">
-                            与校外体感交互公司合作开发的一款诣在通过训练不同的基础手势、帮助有运行缺陷的病人进行康复训练的游戏系统，基于Kinect和Unity3D开发。
-                            以该项目为子系统的医民两用型康复系统获得2013年“Kinect for Windows创新应用大赛”开发者组一等奖；获得2013年上海交通大学软件学院软件展示会一等奖。
-                        </div>
-                    </div>
-               </div>
-            </div>
+                    </li>
 
-            <div class = "panel panel-success">
-               <div class = "panel-heading">
-                  <h3 class = "panel-title">Kikyou体感游戏</h3>
-               </div>
-               
-               <div class = "panel-body">
-                    <div class="row">
-                        <div class="col-md-4 col-xs-12 center">
-                             <a href="http://book.douban.com/subject/4864832/">
-                                 <img src="/img/in-projects/kikyou-game.jpg" class="img-thumbnail">
-                             </a>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 center">
+                                <img src="/img/in-projects/recovery-game.jpg" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-8 col-xs-12 post-container">
+                                <p><b>医疗康复系列游戏</b></p>
+                                <p><i>开发工具：Unity3D, Kinect, C#</i></p>
+                                <p>与校外体感交互公司合作开发的一款诣在通过训练不同的基础手势、帮助有运行缺陷的病人进行康复训练的游戏系统。根据医生的反馈，目前正在使用的医疗康复设备由于动作单一、缺乏趣味性，很容易使病人产生厌倦情绪。本项目把复杂的训练动作（比如说脑瘫、半身瘫病人的翻身、手指力量、站立等动作训练）进行分解，同时对简单的动作进行重复训练，逐步锻炼达到基本能力的形成或提高，最终使病人能够应对日常生活。 系统还通过实际器械和虚拟游戏相结合的方式，通过游戏提高趣味性，达到定制的锻炼功能。该项目已经作为医民两用型康复系统的一部分投入浙江萧山医院和嘉兴中医院的试用中了。以该项目为子系统的医民两用型康复系统获得2013年“Kinect for Windows创新应用大赛”开发者组一等奖；获得2013年上海交通大学软件学院软件展示会一等奖。</p>                             
+                            </div>
                         </div>
-                        <div class="col-md-8 col-xs-12 post-container">
-                            与校外体感交互公司合作开发的一款诣在通过训练不同的基础手势、帮助有运行缺陷的病人进行康复训练的游戏系统，基于Kinect和Unity3D开发。
-                            以该项目为子系统的医民两用型康复系统获得2013年“Kinect for Windows创新应用大赛”开发者组一等奖；获得2013年上海交通大学软件学院软件展示会一等奖。
-                        </div>
-                    </div>
-               </div>
-            </div>
+                    </li>
 
-            <div class = "panel panel-success">
-               <div class = "panel-heading">
-                  <h3 class = "panel-title">我爱记账</h3>
-               </div>
-               
-               <div class = "panel-body">
-                    <div class="row">
-                        <div class="col-md-4 col-xs-12 center">
-                             <a href="http://book.douban.com/subject/4864832/">
-                                 <img src="/img/in-projects/love-accounting.jpg" class="img-thumbnail">
-                             </a>
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 center">
+                                <img src="/img/in-projects/kikyou-game.jpg" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-8 col-xs-12 post-container">
+                                <p><b>Kikyou体感游戏</b></p>
+                                <p><i>开发工具：Unity3D, Kinect, C#</i></p>
+                                <p>大二暑假大作业。Kikyou是一款基于Kinect的体感冒险游戏。游戏以软件学院的一名虚拟女生Kikyou为线索，讲叙了Kikyou因为过度劳累而昏迷，进入异度空间，并在小精灵的帮助下得到四个宝物离开异度空间的故事。游戏共分为四个关卡，如接水果、与敌人对战，难度依次增加，玩家可通过使用道具来回血、改变Kikyou状态，从而帮助自己通过关卡。游戏主要利用了3D游戏引擎Unity来构建3D场景，并结合Kinect来实现控制虚拟人物与虚拟场景之间的互动。该游戏获得2012年上海交通大学软件学院软件展示会一等奖。</p> 
+                            </div>
                         </div>
-                        <div class="col-md-8 col-xs-12 post-container">
-                            一款桌面记账软件。
-                        </div>
-                    </div>
-               </div>
-            </div>
+                    </li>
 
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 center">
+                                <img src="/img/in-projects/love-accounting.jpg" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-8 col-xs-12 post-container">
+                                <p><b>我爱记账</b></p>
+                                <p><i>开发工具：Visual Studio, MySQL, C#</i></p>
+                                <p>大二数据库课程大作业。“我爱记账”是一款多用户、功能实用、界面精致的桌面版记账软件。你可以任意添加、更改和删除账户、账单（支出、支入和转账）、预算等信息，还可以使用查看年度报表、预算对比、账户对账等丰富的功能。软件还支持初始化数据信息、增加新的用户并设置权限。同时，你还可以使用备忘录功能，随时记下你的借入借出、生活小记等信息。</p> 
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-md-4 col-xs-12 center">
+                                <img src="/img/in-projects/monopoly-online.jpg" class="img-thumbnail">
+                            </div>
+                            <div class="col-md-8 col-xs-12 post-container">
+                                <p><b>大富翁Online</b></p>
+                                <p><i>开发工具：Unity3D, C#</i></p>
+                                <p>大二软件工程概论课程大作业。“大富翁Online”是根据大富翁棋改编的P2P的多人联网游戏。游戏中支持最多4 人联网游戏,共有6个游戏角色可供选择，支持使用点数、购买点卡(共8种点卡)、买卖楼房等功能。凭借该游戏获得2012学年《软件工程概论》课程最佳小组称号。</p> 
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
