@@ -1,0 +1,42 @@
+---
+layout:     post
+title:      "你和世界上的任何一个人之间只隔着五个人"
+subtitle:   ""
+date:       2016-04-27 12:00:00
+author:     "Candycat"
+header-img: "img/in-post/default-bg.jpg"
+tags:
+    - 闲谈
+---
+
+## 写在前面
+
+记得大四上计算机系统课的时候，老师是从某旦挖来的我们学院最年轻的教授，他当时说了一句话，大致意思是，看一个人是否厉害可以通过看他关注哪些人就能看出来。学术圈子往往都不大，某个领域非常有名的就是那几个耳熟能详的名字，就算有新人出来了，也往往都是那些牛人培养的弟子。曾经以为自己离那些论文上的光鲜熟悉名字都很远，但随着自己看的东西越来越多，就会发现，你和世界上的任何一个人之间最多只隔着五个人。
+
+## iq
+
+呐，自从我开始用[Shadertoy](www.shadertoy.com)，就发现了很多以前在书本上才看到的牛人。[iq](https://www.shadertoy.com/user/iq)自然不用说了，shadertoy的创始人之一，也是台柱子。iq是西班牙人，之前一直在Pixar负责建模、渲染等工作，后来2015年的时候跳到了Oculus（Oculus又添一名大牛）。每次看iq大牛的作品，内心里总会有无数草泥马奔腾而过，“我X，这是人能写出来的吗？”然后感叹我与大牛之间的差距像隔了一个物种……当你记住一个人的名字后，就会发现经常会看到这个名字。后来在看SIGGRAPH Course的时候，基本只要是提到raymarching相关的内容，iq一定在致谢列表里。
+
+当然了，大牛在生活中也有普通人的一面。比如，当我看到iq大牛下面[这篇博客](http://www.iquilezles.org/blog/?p=3981)的时候笑了很久 :)（恩，iq长得也很萌，可以脑补下发文时候的样子）
+
+![img](/img/in-post/iq-blog.png)
+
+iq不仅长得萌，还会弹钢琴，简直就是安静的美男子形象啊，我有好几次都抑制住自己在他的作品下留言写“你是我的男神！”……
+
+## Fabrice Neyret
+
+在shadertoy上认识的另一个大牛就是Fabrice Neyret[https://www.shadertoy.com/user/FabriceNeyret2]。Fabrice Neyret是一个法国人，在图像学方面很有名，他参与写的书有GPU Pro、GPU Gems2等等。他同时也带学生，他的学生中也不乏很多耳熟能详的名字。
+
+## Aras
+
+[Aras](http://aras-p.info/)是我很早就知道的，他是Unity的元老级人物，一直在负责渲染方面的工作。之前看他的博客，他说很早之前他被任命为部门leader，但发现自己更喜欢在一线工作，于是就回到了开发岗，这是真爱啊。不过最近好像又回到了leader岗，哈哈。Aras现在是SIGGRAPH Course的常客了，更准确的说法是Unity开始是SIGGRAPH的常客了，Aras作为Unity渲染方面的元老+台柱子之一自然常常演讲。
+
+我本来以为Unity只做演讲，今天才发现原来人家也开始投SIGGRAPH论文了……谁说工业界就一定和学术界脱钩的！
+
+## Eric Heitz
+
+我是在Aras的[Twitter](https://twitter.com/aras_p)上知道Eric Heitz的。Eric Heitz现在是Unity的研究科学家（Research Scientist）。后来看了他简历才知道，他的博导正是之前提到的Fabrice Neyret。Eric Heitz在SIGGRAPH 2016上一连中了两篇论文，一篇是关于[多边形光源的渲染](https://eheitzresearch.wordpress.com/415-2/)（该技术也用于制作Unity的Adam Demo），一篇是[关于基于物理的渲染模型](https://eheitzresearch.wordpress.com/240-2/)。Eric Heitz同时也是SIGGRAPH Course 2014的基于物理渲染课程的嘉宾之一。
+
+## 写在最后
+
+Shadertoy吸引我的另一个原因就是因为它提供了一个机会让我可以和那些遥远的名字更进一步交流的机会。尤其是，当作品下面有他们的留言时，那种满足感和成就感是难以言喻的。Anyway，我也不知道写这篇文章的主题是啥，大概就是说，大牛总是和大牛待在一起，想要变得更加优秀？那就去大牛多的地方争取成为他们的一员吧，哇哈哈
