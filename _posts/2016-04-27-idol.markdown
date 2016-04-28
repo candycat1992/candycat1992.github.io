@@ -2,7 +2,7 @@
 layout:     post
 title:      "你和世界上的任何一个人之间只隔着五个人"
 subtitle:   ""
-date:       2016-04-27
+date:       2016-04-27 12:00:00
 author:     "Candycat"
 header-img: "img/in-post/default-bg.jpg"
 tags:

@@ -2,7 +2,7 @@
 layout:     post
 title:      "Graphics Hardware的相关资料"
 subtitle:   "Graphics Hardware"
-date:       2016-04-28
+date:       2016-04-28 12:00:00
 author:     "Candycat"
 header-img: "img/in-post/graphics-hardware-bg.jpg"
 tags:
@@ -13,7 +13,7 @@ tags:
 
 之前面试的时候面试官说让我学一下移动平台硬件方面的东西。我之前了解的比较少，最近找了点资料想抽时间读一读。虽然面试官说的移动平台，但我还是想先了解下PC上的，然后打算再读一下移动端的架构。目前找到的比较好的资料有：
 
-* Real-time Rendering第18章Graphics Hardware里有讲一些
+* Real-Time Rendering第18章Graphics Hardware里有讲一些
 
 * [A trip through the Graphics Pipeline系列](https://fgiesen.wordpress.com/2011/07/09/a-trip-through-the-graphics-pipeline-2011-index/)，以及[小草莓翻译的中文版](http://madstrawberry.me/unreliable-translate/A-trip-through-the-Graphics-Pipeline-2011-translate(0).html)（喂喂喂，赶紧翻译啊！）
 
