@@ -2,7 +2,7 @@
 layout:     post
 title:      "Real-Time Rendering, Graphics Hardware读书笔记"
 subtitle:   "Graphics Hardware"
-date:       2016-04-28 23:00:00
+date:       2016-04-28 13:00:00
 author:     "Candycat"
 header-img: "img/in-post/graphics-hardware-bg.jpg"
 tags:
