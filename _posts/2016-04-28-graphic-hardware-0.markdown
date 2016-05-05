@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Real-Time Rendering, Graphics Hardware读书笔记"
-subtitle:   "Graphics Hardware"
+title:      "Graphics Hardware - Buffers and Buffering"
+subtitle:   "Real-Time Rendering"
 date:       2016-04-28 13:00:00
 author:     "Candycat"
 header-img: "img/in-post/graphics-hardware-bg.jpg"
