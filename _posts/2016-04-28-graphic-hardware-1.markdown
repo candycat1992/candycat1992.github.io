@@ -20,13 +20,13 @@ tags:
 
 ![img](/img/in-post/texture-interpolation.png)
 
-为了解决这个问题，Heckbert、Moreton[1]和Blinn[2]指出\\(\frac{1}{w}\\)和\\((\frac{u}{w}, \frac{v}{w})\\)是可以线性插值的，其中w就是投影空间下顶点的w分量值。也就是说，我们可以对\\(\frac{1}{w}\\)和\\((\frac{u}{w}, \frac{v}{w})\\)进行正常的线性插值，然后再使用\\((\frac{u}{w}, \frac{v}{w})/(\frac{1}{w}) = (u, v)\\)来得到正确的纹理坐标。这种插值方法被称为**双曲线插值（hyperbolic interpolation）**，也被称为**有理线性插值（rational linear interpolation）**，因为分子分子被分别线性插值了。
+为了解决这个问题，Heckbert、Moreton[1]和Blinn[2]指出\\(\frac{1}{w}\\)和\\((\frac{u}{w}, \frac{v}{w})\\)是可以线性插值的，其中w就是投影空间下顶点的w分量值。也就是说，我们可以对\\(\frac{1}{w}\\)和\\((\frac{u}{w}, \frac{v}{w})\\)进行正常的线性插值，然后再使用\\((\frac{u}{w}, \frac{v}{w})/(\frac{1}{w}) = (u, v)\\)来得到正确的纹理坐标。这种插值方法被称为**双曲线插值（hyperbolic interpolation）**，也被称为**有理线性插值（rational linear interpolation）**，因为分子和分母被分别线性插值了。
 
 我们来举个栗子。假设现在需要对一个三角形进行光栅化，并且每个顶点为：
 
 $$\boldsymbol{r}_i = [\boldsymbol{p}_i, \frac{1}{w_i}, \frac{u_i}{w_i}, \frac{v_i}{w_i}]$$
 
-其中，\\( \boldsymbol{p}_i = (p_{ix}, p_{iy}, p_{iz}) \\)是经过投影变换和透视除法后的顶点坐标，\\(w_i\\)是投影空间中的w分量，\\((u_i, v_i)\\)是该顶点的纹理坐标。如下图所示，硬件一般会使用扫描线方法。为了找到图示灰色水平扫描线上的某个像素的坐标，我们首先会对\\(\boldsymbol{r}_0\\)和\\(\boldsymbol{r}_1\\)线性插值得到\\(\boldsymbol{r}_3\\)，然后再对\\(\boldsymbol{r}_2\\)和\\(\boldsymbol{r}_1\\)线性插值得到\\(\boldsymbol{r}_4\\)，最后对\\(\boldsymbol{r}_3\\)和\\(\boldsymbol{r}_4\\)线性插值得到该像素的\\(\boldsymbol{r}\\)。这样插值得到的\\(\boldsymbol{p}\\)值，即像素坐标是正确的。而纹理插值结果\\((u/w, v/w)\\)还需要乘以插值后的\\(w\\)值来得到最终的\\((u, v)\\)。
+其中，\\(\boldsymbol{p}_i = (p_{ix}, p_{iy}, p_{iz})\\)是经过投影变换和透视除法后的顶点坐标，\\(w_i\\)是投影空间中的w分量，\\((u_i, v_i)\\)是该顶点的纹理坐标。如下图所示，硬件一般会使用扫描线方法。为了找到图示灰色水平扫描线上的某个像素的坐标，我们首先会对\\(\boldsymbol{r}_0\\)和\\(\boldsymbol{r}_1\\)线性插值得到\\(\boldsymbol{r}_3\\)，然后再对\\(\boldsymbol{r}_2\\)和\\(\boldsymbol{r}_1\\)线性插值得到\\(\boldsymbol{r}_4\\)，最后对\\(\boldsymbol{r}_3\\)和\\(\boldsymbol{r}_4\\)线性插值得到该像素的\\(\boldsymbol{r}\\)。这样插值得到的\\(\boldsymbol{p}\\)值，即像素坐标是正确的。而纹理插值结果\\((u/w, v/w)\\)还需要乘以插值后的\\(w\\)值来得到最终的\\((u, v)\\)。
 
 这种扫描线的插值实现只是一种选择。另一个可能的实现是计算梯度来得到纹理插值。这里不再赘述了。
 
