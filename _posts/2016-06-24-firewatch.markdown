@@ -1,17 +1,17 @@
 ---
 layout:     post
 title:      "Firewatch中的一些技术"
-subtitle:   "Game Art Trick”
+subtitle:   "Game Art Trick"
 date:       2016-06-24 12:00:00
 author:     "Candycat"
-header-img: "img/in-post/firewatch.png”
+header-img: "img/in-post/firewatch.png"
 tags:
     - Game Art Trick
 ---
 
 视频：[GDC 2016](http://www.gdcvault.com/play/1023191/Making-the-World-of)，[GDC 2015](http://www.gdcvault.com/play/1022295/The-Art-of)
 
-开发公司是Campo Santo，只有十几个人（但大多工作过年，很有经验），感觉更像是Indie Game。开发时间两年。
+开发公司是Campo Santo，只有十几个人（但大多工作多年，很有经验），感觉更像是Indie Game。开发时间两年。
 
 ## 艺术风格
 
@@ -92,7 +92,6 @@ FireWatch里有很多树，Campo Santo当时用的Unity版本是Unity 4.5，而S
 另一个是grass的问题，Unity内置的grass很好使用，可以调整大小、颜色等等，但是性能有问题。小心Detail Map的Resolution。
 
 还有就是Unity Terrain的tessellation问题，他们关闭了terrain的shadow casting，然后使用自己自定义的shadow casting mesh。
-
 
   [1]: http://static.zybuluo.com/candycat/8gve5teno4tt9sr4kmhzmrz6/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-24%2021.44.20.png
   [2]: http://static.zybuluo.com/candycat/f4745med0z0mcwnxf3a849z7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-24%2021.45.30.png
