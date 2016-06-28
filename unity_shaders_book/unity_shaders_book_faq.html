@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html class="theme theme-white">
+<head>
+<meta charset="utf-8">
+<title>《Unity Shader入门精要》FAQ</title>
+<link href="https://www.zybuluo.com/static/assets/template-theme-white.css" rel="stylesheet" media="screen">
+<style type="text/css">
+
+#wmd-preview h1  {
+    color: #0077bb; /* 将标题改为蓝色 */
+}</style>
+</head>
+<body class="theme theme-white">
+<div id="wmd-preview" class="wmd-preview wmd-preview-full-reader"><div class="md-section-divider"></div><div class="md-section-divider"></div><h2 data-anchor-id="65v4" id="unity-shader入门精要faq"><center>《Unity Shader入门精要》FAQ</center></h2><hr><p data-anchor-id="mmkb">说明：本页面是书籍《Unity Shader入门精要》的读者问答集锦，也包含了一些读者的建议，我们可能会据此来更新下一版中的相关内容，欢迎读者反馈。 <br>
+作者：冯乐乐 <br>
+邮箱：lelefeng1992@gmail.com <br>
+更新日期：2016年6月28日</p><hr><p data-anchor-id="eijd"><strong>Q1：关于Unity Shader中_WorldSpaceLightPos0的意义。在漫反射的计算公式中，光源方向I被定义成一个指向光源的向量，也就是说，相对于某一顶点，是由该顶点指向光源，我将之理解成了光源的反方向不知是否正确。我不是很清楚光源方向是如何由_WorldSpaceLightPos0来得到的。</strong></p><p data-anchor-id="hfrv">A1：光照模型里面的光源方向的确是由顶点指向光源的，而且需要归一化。在Unity中，如果是平行光，_WorldSpaceLightPos0存的就是这个光源方向了，Unity传进来的已经是根据这个角度计算而得的方向值了。此时光源方向跟顶点位置没有任何关系，因为它的方向是固定的。我们可以尝试自己在C#里根据平行光的Rotation计算一个角度，这个方向可以理解是把模型空间下的Z轴经过Rotation变换后的世界空间下的一个单位矢量，再对该方向取反得到。如果是其他光源类型，那么这个值就是世界空间里的位置，那么光源方向自然就是该位置值减去顶点位置，再归一化。</p><p data-anchor-id="tkpv"><strong>Q2：在第一版的P34页中写到“表面着色器不需要开发者关心使用多少个Pass，每个Pass如何渲染等问题”，表面着色器不可以支持自定义的多Pass吗？</strong></p><p data-anchor-id="awxp">A2：实际上，利用一些dirty trick我们的确可以在表面着色器中实现自定义多个Pass。我们既可以定义多个表面着色器，还可以把表面着色器和顶点/片元着色器混用，但我们认为这样的Shader不易阅读和管理。</p><p data-anchor-id="e7c6">参考： <br>
+* <a href="http://answers.unity3d.com/questions/354774/multiple-pass-surface-shader.html" target="_blank">http://answers.unity3d.com/questions/354774/multiple-pass-surface-shader.html</a> <br>
+* <a href="http://answers.unity3d.com/questions/610316/multipass-surface-shader-or-equivalent.html" target="_blank">http://answers.unity3d.com/questions/610316/multipass-surface-shader-or-equivalent.html</a></p><p data-anchor-id="bd79"><strong>Q3：我感觉法线贴图那里讲的有点不清楚，我觉得<a href="http://www.cnblogs.com/flytrace/p/3387748.html" target="_blank">这篇文章</a>不错，希望可以借鉴一些。</strong></p><p data-anchor-id="t5mv">A3：书的7.2节的确缺少一些关于法线纹理的起因、原理等方面的讲解，会在后续版本中加强。</p></div>
+</body>
+</html>
