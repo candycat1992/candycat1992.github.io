@@ -4,7 +4,7 @@ title:      "Firewatch中的一些技术"
 subtitle:   "Game Art Tricks"
 date:       2016-06-24 12:00:00
 author:     "Candycat"
-header-img: "img/in-post/firewatch.png"
+header-img: "img/in-post/firewatch.jpg"
 tags:
     - Game Art Tricks
 ---

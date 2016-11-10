@@ -1,0 +1,104 @@
+---
+layout:     post
+title:      "Diablo的特效实现"
+subtitle:   "Game Art Tricks"
+date:       2016-06-25 00:00:01
+author:     "Candycat"
+header-img: "img/in-post/diablo-3.jpeg"
+tags:
+    - Game Art Tricks
+---
+
+视频：[GDC 2013](http://www.gdcvault.com/play/1017660/Technical-Artist-Bootcamp-The-VFX)
+
+Diablo（暗黑破坏神），暴雪出品。演讲者是暴雪TA，额最后的QA环节听出来代码不是他写的（恩什么ps、vs他看起来也完全不知道，“I have no idea, haha”）……看来暴雪TA负责是的设计shader和特效，但代码还是另外由人来写的。
+
+Simon在[他的文章](https://simonschreibt.de/gat/diablo-3-wings-of-angels/)里详细分析了翅膀特效的实现，他当时没看到这个演讲所以很多靠猜很不容易……
+
+## "Blend Add" Shading
+
+![屏幕快照 2016-06-25 11.20.25.png-277.6kB][1]
+
+传统的additive（左边）太亮了，blend（中间）缺少bloom效果，所以他们选择右边这种。
+
+他们所说的Blend Add实际就是把各个颜色或透明通道相乘以后又乘以了2进行加亮。
+
+## Texture Multiplication Shader
+
+下面的公式就是所有特效使用的基本公式，简单来说就是在普通的乘法后又乘以2。
+
+![屏幕快照 2016-06-25 11.25.40.png-284.1kB][2]
+
+下面他举了很多例子。先从最简单的开始。下面是两张非常简单的纹理，只考虑alpha通道，因此rgb现在都是白色。TEX1和TEX2是两张相同的纹理，但是按照不同的速率滚动，乘起来之后就可以得到右边的效果。看起来像云。
+
+![屏幕快照 2016-06-25 11.26.12.png-66.8kB][3]
+
+下面再添加一张纹理，TEX2现在是缩放成0.5，TEX3是放大成2.0，然后按不同速率滚动，得到更加复杂的类似云层飘逸的效果。
+
+![屏幕快照 2016-06-25 11.27.12.png-70.5kB][4]
+
+下面是再添加一张texture（其实只是第二张，前三张本质是一张纹理，只是uv不同），这张纹理定义了particle的基本区域，然后乘起来（注意这里没有乘以2，因为只是想作为mask）得到一个基本的particle渲染效果。
+
+![屏幕快照 2016-06-25 11.27.51.png-61.7kB][5]
+
+下面是把7个这样的particle叠在一起的效果，就很有圆状的动态效果了。
+
+![屏幕快照 2016-06-25 11.31.45.png-71.8kB][6]
+
+他指出很多特效都是靠这种方法，然后举了一些实际的例子。例如下面的幽灵毒药效果，TEX1不动，TEX2不断向上滚动，把17个这样的particle叠加起来就得到了右侧的效果。
+
+![屏幕快照 2016-06-25 11.28.52.png-57.7kB][7]
+
+再比如下面的火焰特效。
+
+![屏幕快照 2016-06-25 11.33.37.png-56.6kB][8]
+
+以及下面的冰冻拖尾特效。拖尾的动作还是依靠改变particle网格动画得到的，但每个particle的渲染是使用了这种方法。
+
+![屏幕快照 2016-06-25 11.33.51.png-51.1kB][9]
+
+下面这个特效也是仅靠两张texture来实现的。
+
+![屏幕快照 2016-06-25 11.34.34.png-48.8kB][10]
+
+下面这张图是上面那个特效的实现细节。TEX1是一个不动的纹理，TEX2不停滚动，然后整个特效再依靠12个particle的运动来实现。
+
+![屏幕快照 2016-06-25 12.14.50.png-100.8kB][11]
+
+同上，还有一些更复杂的例子。这个火焰只使用了23个particle。
+
+![屏幕快照 2016-06-25 11.35.41.png-85.2kB][12]
+
+上面的特效，这种方法来用于渲染一些伪体积渲染。例如下面的烟雾，只用了60个particle。
+
+![屏幕快照 2016-06-25 11.37.28.png-122.3kB][13]
+
+下面这张图是真正的网格。
+
+![屏幕快照 2016-06-25 11.37.53.png-85.7kB][14]
+
+下面的地火也是，只用了28个particle，和一些滚动的纹理。
+
+![屏幕快照 2016-06-25 11.38.54.png-81.8kB][15]
+
+------
+
+这种方法大大节省了particle的数目，从而减少了overdraw，在作者看来这是一个huge win！oh yeah！这种方法的瓶颈其实是在memory上，而不是shader计算上。每个particle多用了大概两张texture，但减少了很多overdraw。
+
+QA环节有一个人问，为什么要把alpha和rgb分开，和在一起可以吗？除了一些内容创建的原因，他更倾向于分开，因此这样每张texture都比较小，texture load的时间就比较快。
+
+  [1]: http://static.zybuluo.com/candycat/k5x9vmwpwy2wwgk127o0u7mu/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.20.25.png
+  [2]: http://static.zybuluo.com/candycat/4vto6ev55ccbjh2jmuro9vth/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.25.40.png
+  [3]: http://static.zybuluo.com/candycat/zh1q490xxd4jnvn12wv943l7/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.26.12.png
+  [4]: http://static.zybuluo.com/candycat/t4q7t623xmnll0ps8imbrzny/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.27.12.png
+  [5]: http://static.zybuluo.com/candycat/b54fd85ir08y273eq0w9g9fc/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.27.51.png
+  [6]: http://static.zybuluo.com/candycat/uswphsbxd8wwdcg6lvw3fm5n/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.31.45.png
+  [7]: http://static.zybuluo.com/candycat/dwti96d8cc6t6c6hkvufu9yi/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.28.52.png
+  [8]: http://static.zybuluo.com/candycat/lvb63blcbd0hrqm4mppgnp9v/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.33.37.png
+  [9]: http://static.zybuluo.com/candycat/4tn66e3t5haa1rp7gybmhc30/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.33.51.png
+  [10]: http://static.zybuluo.com/candycat/j6f5utzo908jgc4zhp1np0ux/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.34.34.png
+  [11]: http://static.zybuluo.com/candycat/7iwlsrel512sddtib2b3hiu0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2012.14.50.png
+  [12]: http://static.zybuluo.com/candycat/kc61278tethb3ebc4dsoszq0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.35.41.png
+  [13]: http://static.zybuluo.com/candycat/8cwt6ij483ce3ja8z6k57ci5/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.37.28.png
+  [14]: http://static.zybuluo.com/candycat/lh09r0cx8pydgemc1ogcuxhe/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.37.53.png
+  [15]: http://static.zybuluo.com/candycat/4owyd70kmctbv72lic9vvrn0/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202016-06-25%2011.38.54.png
