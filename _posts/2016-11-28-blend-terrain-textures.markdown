@@ -27,7 +27,7 @@ tags:
 
 ![block_blend](http://candycat1992.github.io/img/in-post/2016-11-28-blend-terrain-textures/block_blend.png)
 
-这张纹理是关键所在，它的RG通道存储了该位置处需要混合的_**两种**_地形纹理的_**索引值**_，它的B通道存储了这两种纹理的混合系数。下面是上图的RGB通道图：
+这张纹理是关键所在，它的RG通道存储了该位置处需要混合的**两种**地形纹理的**索引值**，它的B通道存储了这两种纹理的混合系数。下面是上图的RGB通道图：
 
 ![block_blend_rgb](http://candycat1992.github.io/img/in-post/2016-11-28-blend-terrain-textures/block_blend_rgb.png)
 
