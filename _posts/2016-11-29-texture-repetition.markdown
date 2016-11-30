@@ -30,9 +30,9 @@ tags:
 * 即便模糊了接缝处，还是会有一些残留的接缝。这些接缝产生的原因是因为我们这种方法会使得uv在tile的边界处产生很大的跳跃，导致mipmaping的时候也会出现跳跃。解决方法就是传递正确的ddx和ddy给tex2D函数，避免uv跳跃即可。
     ![texture_tech1](http://candycat1992.github.io/img/in-post/2016-11-29-texture-repetition/texture_tech1.png)
 
-iq的Shadertoy上有个动态的例子：
+iq的Shadertoy上有个动态的例子可以看出来是怎么旋转平移的：
 
-<iframe width="400" height="300" frameborder="0" src="https://www.shadertoy.com/embed/lt2GDd?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
+<iframe width="640" height="360" frameborder="0" src="https://www.shadertoy.com/embed/lt2GDd?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
 
 Unity Shader的主要代码如下：
 
@@ -88,7 +88,7 @@ fixed4 texNoTileTech1(sampler2D tex, float2 uv) {
 
 iq的Shadertoy上还有个动态的例子：
 
-<iframe width="400" height="300" frameborder="0" src="https://www.shadertoy.com/embed/4tsGzf?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
+<iframe width="640" height="360" frameborder="0" src="https://www.shadertoy.com/embed/4tsGzf?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
 
 Unity Shader的主要代码如下：
 
