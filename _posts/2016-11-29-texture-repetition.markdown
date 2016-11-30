@@ -32,7 +32,7 @@ tags:
 
 iq的Shadertoy上有个动态的例子：
 
-<iframe width="640" height="360" frameborder="0" src="https://www.shadertoy.com/embed/lt2GDd?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
+<iframe width="400" height="300" frameborder="0" src="https://www.shadertoy.com/embed/lt2GDd?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
 
 Unity Shader的主要代码如下：
 
@@ -88,7 +88,7 @@ fixed4 texNoTileTech1(sampler2D tex, float2 uv) {
 
 iq的Shadertoy上还有个动态的例子：
 
-<iframe width="640" height="360" frameborder="0" src="https://www.shadertoy.com/embed/4tsGzf?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
+<iframe width="400" height="300" frameborder="0" src="https://www.shadertoy.com/embed/4tsGzf?gui=true&t=10&paused=true&muted=false" allowfullscreen></iframe>
 
 Unity Shader的主要代码如下：
 
@@ -132,6 +132,6 @@ fixed4 texNoTileTech2(sampler2D tex, float2 uv) {
 
 从性能上来看，方法一需要采样4次（如果使用噪声纹理来模拟随机数的话还要再加上4次），方法二需要采样9次（如果使用噪声纹理来模拟随机数的话还要再加上9次），当然还有一些额外的计算，所以使用的时候要权衡。
 
-效果上来看，原始采样 < 方法一 < 方法二的效果，尤其是在图片本身就有一定四四方方的样式，比如：
+从PVRShaderEditor来看，原始采样、方法一、方法二估测出来的cycles数目大约是28、188、360。从效果上来看，原始采样 < 方法一 < 方法二的效果，尤其是在图片本身就有一定四四方方的样式，比如：
 
 ![more_results](http://candycat1992.github.io/img/in-post/2016-11-29-texture-repetition/more_results.jpg)
