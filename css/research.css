@@ -84,15 +84,6 @@ pre.bibtex {
 	width: 164px;
 }
 
-#publication-attachments li.jpg { background: url('{{ site.baseurl }}/img/toolbox/filetypes/jpg.png') 0 0 no-repeat; background-size:32px 32px }
-#publication-attachments li.pdf { background: url('{{ site.baseurl }}/img/toolbox/filetypes/pdf.png') 0 0 no-repeat; background-size:32px 32px}
-#publication-attachments li.png { background: url('{{ site.baseurl }}/img/toolbox/filetypes/png.png') 0 0 no-repeat; background-size:32px 32px }
-#publication-attachments li.txt { background: url('{{ site.baseurl }}/img/toolbox/filetypes/txt.png') 0 0 no-repeat; background-size:32px 32px }
-#publication-attachments li.zip { background: url('{{ site.baseurl }}/img/toolbox/filetypes/zip.png') 0 0 no-repeat; background-size:32px 32px }
-#publication-attachments li.html { background: url('{{ site.baseurl }}/img/toolbox/filetypes/html.png') 0 0 no-repeat; background-size:32px 32px }
-#publication-attachments li.ppt { background: url('{{ site.baseurl }}/img/toolbox/filetypes/ppt.png') 0 0 no-repeat; background-size:32px 32px }
-#publication-attachments li.mp4 { background: url('{{ site.baseurl }}/img/toolbox/filetypes/mp4.png') 0 0 no-repeat; background-size:32px 32px }
-
 #publication-attachments li img {
 	vertical-align: middle;
 }
