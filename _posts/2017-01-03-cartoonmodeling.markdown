@@ -145,7 +145,7 @@ pre.bibtex {
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 			<h4>Authors</h4>
 			<p>
-				Lele Feng, Xubo Yang, Shuangjiu Xiao
+				Lele Feng, Xubo Yang, Shuangjiu Xiao, Fan Jiang
 			</p>
 						
 			<h4>Publication</h4>
