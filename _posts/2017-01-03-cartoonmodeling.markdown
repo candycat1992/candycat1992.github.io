@@ -57,7 +57,7 @@ tags:
 	         <p>In this paper, we propose an interactive system that can quickly convert a 2D cartoon painting into a 3D textured cartoon model, enabling non-professional adults and children to easily create personalized 3D contents. Our system exploits a new approach based on solving Poisson equations to generate 3D models, which is free from the limitations of spherical topology in prior works. We also propose a novel method to generate whole textures for both sides of the models to deliver colorful appearances, making it possible to obtain stylized models rendered with cartoon textures. The results have shown that our method can greatly simplify the modeling process comparing with both traditional modeling softwares and prior sketch-based systems.</p>
 			
 			<h4>Videos</h4>
-            <p><iframe width="560" height="315" src="https://www.youtube.com/embed/NystYCMcVDI" frameborder="0" allowfullscreen></iframe></p>
+            <p><iframe width="560" height="315" src="https://www.youtube.com/embed/HTriJgeyvqY" frameborder="0" allowfullscreen></iframe></p>
 
 			<h4>BibTeX</h4>
 			<p>
