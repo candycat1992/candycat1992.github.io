@@ -98,8 +98,8 @@ float blendRatio = tex2D(_BlendTex, i.uv).z;
 
 float2 worldScale = (worldPos.xz * _BlockScale);
 float2 worldUv = 0.234375 * frac(worldScale) + 0.0078125;
-float2 dx = min(0.234375 * ddx(worldScale), 0.0078125);
-float2 dy = min(0.234375 * ddy(worldScale), 0.0078125);
+float2 dx = clamp(0.234375 * ddx(worldScale), -0.0078125, 0.0078125);
+float2 dy = clamp(0.234375 * ddy(worldScale), -0.0078125, 0.0078125);
 
 float2 uv0 = worldUv.xy + decodedIndices.xy;
 float2 uv1 = worldUv.xy + decodedIndices.zw;
@@ -110,7 +110,9 @@ float4 col1 = tex2D(_BlockMainTex, uv1, dx, dy);
 float4 col = lerp(col0, col1, blendRatio);
 ```
 
-其实就是手动算了下采样坐标worldScale的ddx和ddy，这也是为什么之前每个block要向每边拉伸了0.0078125个单位，这样才不会采样越境。上面在算ddx和ddy的时候，还和0.0078125（1/128）取了min，我猜想这是为了在摄像机距地面非常的远的时候（此时ddx和ddy会比较大，纹素密度很大），如果ddx或ddy超过了拉伸值0.0078125（1/128），就会在接缝处采样到隔壁的block，所以要在这里min一下。
+其实就是手动算了下采样坐标worldScale的ddx和ddy，这也是为什么之前每个block要向每边拉伸了0.0078125个单位，这样才不会采样越境。上面在算ddx和ddy的时候，还把结果截取到（-0.0078125，0.0078125）即（1/128，-1/128）之间，我猜想这是为了在摄像机距地面非常的远的时候（此时ddx和ddy的绝对值会比较大，纹素密度很大），如果ddx或ddy的绝对值超过了拉伸值0.0078125（1/128），就会在接缝处采样到隔壁的block，所以要在这里使用clamp截取一下范围，下图显示了截取范围前后的区别。在此需要感谢评论区的jim童鞋，我之前只考虑到了正数的情况，没有考虑负值，这是不正确的（额这么说来其实某个上线游戏里也是不对的…）。
+
+![terrain_clamp](http://candycat1992.github.io/img/in-post/2016-11-28-blend-terrain-textures/terrain_clamp.png)
 
 # 写在最后
 
