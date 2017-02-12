@@ -85,13 +85,19 @@ friends: [
         title: "Aras Blog",
         href: "http://aras-p.info/blog/"
     },{
-        title: "Scrawk Blog",
-        href: "http://scrawkblog.com/"
-    },{
         title: "雨松MOMO的Blog",
         href: "http://www.xuanyusong.com/"
     },{
         title: "云风的Blog",
         href: "http://blog.codingnow.com/"
+    },{
+        title: "Kingdom的Blog",
+        href: "https://kingdom017.me/"
+    },{
+        title: "疯草莓的Blog",
+        href: "http://madstrawberry.me/"
+    },{
+        title: "Kanglai Blog",
+        href: "http://qiankanglai.me/"
     }
 ]
