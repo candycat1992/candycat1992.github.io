@@ -58,17 +58,11 @@ tags:
 	         <p>We present MagicToon, an interactive modeling system with mobile augmented reality (AR) that allows children to build 3D cartoon scenes creatively from their own 2D cartoon drawings on paper. Our system consists of two major components: an automatic 2D-to-3D cartoon model creator and an interactive model editor to construct more complicated AR scenes. The model creator can generate textured 3D cartoon models according to 2D drawings automatically and overlay them on the real world, bringing life to flat cartoon drawings. With our interactive model editor, the user can perform several optional operations on 3D models such as copying and animating in AR context through a touchscreen of a handheld device. The user can also author more complicated AR scenes by placing multiple registered drawings simultaneously. The results of our user study have shown that our system is easier to use compared with traditional sketch-based modeling systems and can give more play to children’s innovations compared with AR coloring books.</p>
 
 	        <h4>Supplemental Materials</h4>
-	        <p>Coming soon. </p>
-	        <!-- 
             <p><a href="http://candycat1992.github.io/img/in-post/2017-01-19-magictoon/supplemental-material0.png" target="_blank"><img src="http://candycat1992.github.io/img/in-post/2017-01-19-magictoon/supplemental-material0.png" width="200" height="283" /></a>  <a href="http://candycat1992.github.io/img/in-post/2017-01-19-magictoon/supplemental-material1.png" target="_blank"><img src="http://candycat1992.github.io/img/in-post/2017-01-19-magictoon/supplemental-material1.png" width="200" height="283" /></a></p>
-            -->
 			
 			<h4>Videos</h4>
-			<p>Coming soon. </p>
-			<!-- 
             <p><iframe width="560" height="315" src="https://www.youtube.com/embed/aN_PdhLiYQg" frameborder="0" allowfullscreen></iframe></p>
             <p><iframe width="560" height="315" src="https://www.youtube.com/embed/CIG1AlRhi3A" frameborder="0" allowfullscreen></iframe></p>
-            -->
 
 			<h4>BibTeX</h4>
 			<p>
@@ -84,9 +78,10 @@ tags:
 
 			<h4>Attachments</h4>
 	        <ul id="publication-attachments">
-	            <li class="pdf"><a href="">Coming Soon</a></li>
-	            <!-- 
 	            <li class="pdf"><a href="http://candycat1992.github.io/attach/papers/2017-magictoon-supplemental-materials.pdf">Supplemental PDF</a></li>
+	           	<!-- 
+	           	<li class="pdf"><a href="">Slides (Coming Soon)</a></li>
+	           	<li class="pdf"><a href="">Coming Soon</a></li>
 	            <li class="mp4"><a href="http://candycat1992.github.io/attach/videos/2017-magictoon-video-low.mp4">Video 1 (77MB)</a></li>
 	            <li class="mp4"><a href="http://candycat1992.github.io/attach/videos/2017-magictoon-animation-low.mp4">Video 2 (65MB)</a></li>
 	             -->
