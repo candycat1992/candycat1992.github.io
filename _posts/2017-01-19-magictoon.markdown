@@ -78,10 +78,10 @@ tags:
 
 			<h4>Attachments</h4>
 	        <ul id="publication-attachments">
+	        	<li class="pdf"><a href="http://candycat1992.github.io/attach/papers/2017-magictoon.pdf">Paper</a></li>
 	            <li class="pdf"><a href="http://candycat1992.github.io/attach/papers/2017-magictoon-supplemental-materials.pdf">Supplemental PDF</a></li>
+	           	<li class="pdf"><a href="http://candycat1992.github.io/attach/papers/2017-magictoon_slides.pdf">Slides (PDF)</a></li> 	
 	           	<!-- 
-	           	<li class="pdf"><a href="">Slides (Coming Soon)</a></li>
-	           	<li class="pdf"><a href="">Coming Soon</a></li>
 	            <li class="mp4"><a href="http://candycat1992.github.io/attach/videos/2017-magictoon-video-low.mp4">Video 1 (77MB)</a></li>
 	            <li class="mp4"><a href="http://candycat1992.github.io/attach/videos/2017-magictoon-animation-low.mp4">Video 2 (65MB)</a></li>
 	             -->
