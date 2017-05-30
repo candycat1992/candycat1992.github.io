@@ -47,11 +47,13 @@ kramdown:
 #disqus_username: _your_disqus_short_name_
 
 # Duoshuo settings
-duoshuo_username: candycat
+# duoshuo_username: candycat
 # Share component is depend on Comment so we can NOT use share only.
-duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+# duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
-
+# LiveRe setttings
+# You can get your uid from https://livere.com/insight/myCode (General web site)
+livere_uid: MTAyMC8yODg4Mi81NDUy
 
 
 # Analytics settings
