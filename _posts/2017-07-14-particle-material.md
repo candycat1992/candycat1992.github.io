@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      "Smoke材质的二三事"
+title:      Smoke材质的二三事
 subtitle:   "Game Art Tricks"
 date:       2017-07-14 00:00:02
 author:     "Candycat"
 header-img: "img/in-post/default-bg.jpg"
 tags:
-    - 博客更新
+    - Game Art Tricks
 ---
 
 ## 前言
