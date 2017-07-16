@@ -121,19 +121,19 @@ Shader "Smoke Frame" {
 				o.pos = UnityObjectToClipPos(v.vertex);
 
 				float frame = _Time.y * _Speed;
-               	// 前后两帧图像的uv坐标
+               			// 前后两帧图像的uv坐标
 				o.uv.xy = SubUVCoordinates(v.texcoord.xy, frame, _MainTex_ST.xy);
 				o.uv.zw = SubUVCoordinates(v.texcoord.xy, frame + 1, _MainTex_ST.xy);
-                // 混合前后量帧时使用的混合系数
+                		// 混合前后量帧时使用的混合系数
 				o.blendFactor.x = frac(frame);
-                // 计算lifetime，第0帧对应lifetime值0，最后一帧对应lifetime值1
+                		// 计算lifetime，第0帧对应lifetime值0，最后一帧对应lifetime值1
 				o.blendFactor.y = frac(frame / (_MainTex_ST.x * _MainTex_ST.y));
 
 				return o;
 			}
 
 			inline float2 SampleMotionVector(float2 uv) {
-            	// 这里会乘以float2(1, -1)是因为motion vector中存储的方向和Unity里面纹理采样的方向有所不同
+            			// 这里会乘以float2(1, -1)是因为motion vector中存储的方向和Unity里面纹理采样的方向有所不同
 				return (tex2D(_FlowMap, uv).rg * 2.0 - 1.0) * float2(1, -1);
 			}
 
@@ -251,7 +251,7 @@ Shader "Smoke Particle" {
 
 			float4 frag (v2f i) : SV_Target {
 				float2 dist = i.uv1.xy - 0.5;
-                // 来模拟从中间向外扩散的效果
+                		// 来模拟从中间向外扩散的效果
 				float time = dot(dist, dist) * (0.5 + tex2D(_ParticleNoiseTex, i.uv1.xy * 0.3).b * 0.5) * 4.0 - _Time.y * _Speed;
 
 				// 模拟两层运动
