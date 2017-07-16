@@ -1,7 +1,4 @@
 ---
-published: true
----
----
 layout:     post
 title:      "博客评论系统更新记录"
 subtitle:   "博客更新"
