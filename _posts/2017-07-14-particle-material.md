@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "博客评论系统更新记录"
-subtitle:   "博客更新"
+title:      "Smoke材质的二三事"
+subtitle:   "Game Art Tricks"
 date:       2017-07-14 00:00:02
 author:     "Candycat"
 header-img: "img/in-post/default-bg.jpg"
