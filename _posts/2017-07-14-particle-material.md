@@ -1,7 +1,22 @@
 ---
-published: false
+published: true
 ---
+---
+layout:     post
+title:      "博客评论系统更新记录"
+subtitle:   "博客更新"
+date:       2017-07-14 00:00:02
+author:     "Candycat"
+header-img: "img/in-post/default-bg.jpg"
+tags:
+    - 博客更新
+---
+
 ## 前言
+
+这篇文章是我第一次使用[Prose](http://prose.io/)来写博客，尝试一下。以前我都是在Cmd Markdown里写，然后编辑一下再发布的，感觉过程略蠢……
+
+-----------------
 
 这几天看了些关于粒子特效材质的文章，主要是怎么得到比较流畅的动画效果，比如爆炸之类的。感觉有一些想法很有意思，这篇主要参考了Simon的[Fallout 4 – The Mushroom Case](https://simonschreibt.de/gat/fallout-4-the-mushroom-case/)一文。
 
