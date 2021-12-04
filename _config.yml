@@ -7,29 +7,39 @@ description: "喜欢和好奇用计算机产生的一切画面"
 keyword: ""
 url: "candycat1992.github.io"              # your host, for absolute URL
 baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
-timezone: CN
 
-gems: [jekyll-paginate]
-
+# Publish posts or collection documents with a future date.
+future: true
 
 # SNS settings
 RSS: false
-
+#weibo_username:     2776591135
+douban_username:    69635011
 zhihu_username:     lele-feng-15
 github_username:    candycat1992
-douban_username:    69635011
-#weibo_username:     2776591135
-twitter_username:  candycat1992
+twitter_username:   candycat1992
 #facebook_username:  huxpro
+#linkedin_username:  firstname-lastname-idxxxx
 
 
 
 # Build settings
+# from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
 highlighter: rouge
 permalink: pretty
 paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
+# If you have timezone issue (e.g. #68) in China, uncomment to use this:
+#timezone: CN  
+
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+# make sure you have this gem installed
+# `$ gem install jekyll-paginate`
+plugins: [jekyll-paginate]
 
 
 
@@ -40,35 +50,45 @@ anchorjs: true                          # if you want to customize anchor. check
 markdown: kramdown
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
+  syntax_highlighter_opts:
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
 
 
 
 # Disqus settings
-#disqus_username: _your_disqus_short_name_
+#disqus_username: hux
 
-# Duoshuo settings
-duoshuo_username: candycat
-# Share component is depend on Comment so we can NOT use share only.
-# duoshuo_share: true                     # set to false if you want to use Comment without Sharing
+
+
+# Netease settings
+netease_comment: false
+
+
 
 # LiveRe setttings
 # You can get your uid from https://livere.com/insight/myCode (General web site)
 livere_uid: MTAyMC8yODg4Mi81NDUy
 
 
+
 # Analytics settings
-# Baidu Analytics
+# Baidu Analytics 
 ba_track_id: 207a182a0a79e8a76bfd02381045166f
+
 # Google Analytics
 #ga_track_id: 'UA-49627206-1'            # Format: UA-xxxxxx-xx
-#ga_domain: auto
+#ga_domain: huangxuan.me
 
 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "一只喜欢计算机图形的程序媛，爱好写shader、写博客，喜欢用计算机来绘制各种五彩缤纷的画面。"
-sidebar-avatar: /img/avatar-girl.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /img/avatar-girl.jpg    # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -78,21 +98,20 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 
 
 
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+
+
+# MathJax rendering for layout:page (e.g. post preview)
+page-mathjax: false
+
+
+
 # Friends
 friends: [
     {
-        title: "Iq Blog",
-        href: "http://www.iquilezles.org/www/index.htm"
-    },{
-        title: "Aras Blog",
-        href: "http://aras-p.info/blog/"
-    },{
-        title: "雨松MOMO的Blog",
-        href: "http://www.xuanyusong.com/"
-    },{
-        title: "云风的Blog",
-        href: "http://blog.codingnow.com/"
-    },{
         title: "Kingdom的Blog",
         href: "https://kingdom017.me/"
     },{

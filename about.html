@@ -1,91 +1,24 @@
 ---
 layout: page
 title: "About"
-description: "Who is Candycat"
+description: "喵喵喵~"
 header-img: "img/about-bg.jpg"
+multilingual: true
 ---
 
-<!-- Language Selector -->
-<select onchange= "onLanChange(this.options[this.options.selectedIndex].value)">
-    <option value="0" selected> 中文 </option>
-    <option value="1"> English </option>
-</select>
+{% include multilingual-sel.html %}
 
 <!-- Chinese Version -->
-<div class="zh">
-    <p>Hi，我是<strong>冯乐乐</strong>，上海交通大学软件学院研究生，数字媒体方向，目前投身于游戏行业。我喜欢一切用计算机绘画的技术！</p>
-
-    <p>爱好写shader、计算机图形学、写博客、看书；经常在<a href="https://www.shadertoy.com/user/candycat" target="_blank">Shadertoy</a>上学习和分享shader；之前一直在<a href="http://blog.csdn.net/candycat1992" target="_blank">CSDN</a>上分享技术博客。个人编写的技术书籍《Unity Shader入门精要》（<a href="http://www.epubit.com.cn/book/details/4576" target="_blank">异步社区</a> | <a href="https://www.amazon.cn/Unity-Shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81-%E5%86%AF%E4%B9%90%E4%B9%90/dp/B01G95GMU6/ref=sr_1_1?s=books&ie=UTF8&qid=1464607131&sr=1-1&keywords=unity+shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81" target="_blank">亚马逊</a> | <a href="http://item.jd.com/11927199.html" target="_blank">京东</a> | <a href="http://product.dangdang.com/23972910.html" target="_blank">当当</a>）于2016年由人民邮电出版社出版发售。</p>
-
-    <p>更多关于我的论文和项目，可以戳我的<a href="http://candycat1992.github.io/portfolio/">作品集</a>。</p>
-
-    <p>联系方式：lelefeng1992 # gmail DOT com</p>
+<div class="zh post-container">
+    {% capture about_zh %}{% include about/zh.md %}{% endcapture %}
+    {{ about_zh | markdownify }}
 </div>
 
 <!-- English Version -->
-<div class="en">
-    <p>Hi, my name is <strong>Lele Feng</strong>. I received my master degree from Shanghai Jiao Tong University in 2017, working at <a href="http://dalab.se.sjtu.edu.cn/www/home/" target="_blank">Digital ART Lab</a> advised by Xubo Yang. I received my bachelor degree from Shanghai Jiao Tong University in 2014. My research interest is computer graphics, including modeling, rendering, and augmented reality (AR). Currently I am working in game industry.</p>
-
-    <p>I like sharing shaders in <a href="https://www.shadertoy.com/user/candycat" target="_blank">Shadertoy</a> and writing <a href="http://blog.csdn.net/candycat1992" target="_blank">blogs</a>. In 2015, I wrote a book naming <i>Essentials of Learning Unity Shader</i> (<a href="http://www.epubit.com.cn/book/details/4576" target="_blank">Epubit</a> | <a href="https://www.amazon.cn/Unity-Shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81-%E5%86%AF%E4%B9%90%E4%B9%90/dp/B01G95GMU6/ref=sr_1_1?s=books&ie=UTF8&qid=1464607131&sr=1-1&keywords=unity+shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81" target="_blank">Amazon</a> | <a href="http://item.jd.com/11927199.html" target="_blank">JD</a> | <a href="http://product.dangdang.com/23972910.html" target="_blank">Dangdang</a>), published by the People's Posts and Telecommunications Press（Posts &amp; Telecom Press）in 2016.</p>
-
-    <p>For more about my publications and projects, please visit my <a href="http://candycat1992.github.io/portfolio/">Portfolio</a>.</p>
-
-    <p>Contact me：lelefeng1992 # gmail DOT com</p>
+<div class="en post-container">
+    {% capture about_en %}{% include about/en.md %}{% endcapture %}
+    {{ about_en | markdownify }}
 </div>
-
-<!-- Handle Language Change -->
-<script type="text/javascript">
-    var $zh = document.querySelector(".zh");
-    var $en = document.querySelector(".en");
-    function onLanChange(index){
-        if(index == 0){
-            $zh.style.display = "block";
-            $en.style.display = "none";
-        }else{
-            $en.style.display = "block";
-            $zh.style.display = "none";
-        }
-    }
-    onLanChange(0);
-</script>
-
-
-
-{% if site.duoshuo_username %}
-<!-- 多说评论框 start -->
-<div class="comment">
-    <div class="ds-thread"
-    {% if site.duoshuo_username == "huxblog" %}
-        data-thread-id="1187623191091085319"
-    {% else %}
-        data-thread-key="{{site.duoshuo_username}}/about"
-    {% endif %}
-
-    data-title="{{page.title}}"
-    data-url="{{site.url}}/about/"></div>
-</div>
-<!-- 多说评论框 end -->
-
-<!-- Duoshuo hacking -->
-<input id="dsUser" type="hidden" value="{{site.duoshuo_username}}"  />
-
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    // dynamic User hacking by Hux
-    var _user = document.getElementById('dsUser').value;
-    // duoshuo comment query.
-    var duoshuoQuery = {short_name: _user };
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-</script>
-<!-- 多说公共JS代码 end -->
-{% endif %}
 
 
 {% if site.disqus_username %}

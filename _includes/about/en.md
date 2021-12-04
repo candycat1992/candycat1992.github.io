@@ -1,0 +1,7 @@
+Hi, my name is Lele Feng. I received my master degree from Shanghai Jiao Tong University in 2017, working at [Digital ART Lab](http://dalab.se.sjtu.edu.cn/www/home/) advised by Xubo Yang. I received my bachelor degree from Shanghai Jiao Tong University in 2014. My research interest is computer graphics, including modeling, rendering, and augmented reality (AR). Currently I am working in miHoYo game company since 2017.
+
+I like sharing shaders in [Shadertoy](https://www.shadertoy.com/user/candycat) and writing blogs on [CSDN](http://blog.csdn.net/candycat1992). In 2015, I wrote a book naming <i>Essentials of Learning Unity Shader</i> ([Epubit](http://www.epubit.com.cn/book/details/4576) | [Amazon](https://www.amazon.cn/Unity-Shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81-%E5%86%AF%E4%B9%90%E4%B9%90/dp/B01G95GMU6/ref=sr_1_1?s=books&ie=UTF8&qid=1464607131&sr=1-1&keywords=unity+shader%E5%85%A5%E9%97%A8%E7%B2%BE%E8%A6%81) | [JD](http://item.jd.com/11927199.html) | [Dangdang](http://product.dangdang.com/23972910.html)), published by the People's Posts and Telecommunications Press in 2016.
+
+For more about my publications and projects, please visit my [Portfolio](http://candycat1992.github.io/portfolio/).
+
+Contact me：lelefeng1992 # gmail DOT com
