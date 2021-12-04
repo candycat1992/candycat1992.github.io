@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      "Diablo的特效实现"
-subtitle:   "Game Art Tricks"
+title:      "[Game Tricks] Diablo的特效实现"
+subtitle:   ""
 date:       2016-06-25 00:00:01
 author:     "Candycat"
 header-img: "img/in-post/diablo-3.jpeg"
 tags:
-    - Game Art Tricks
+    - Game Tricks
 ---
 
 视频：[GDC 2013](http://www.gdcvault.com/play/1017660/Technical-Artist-Bootcamp-The-VFX)

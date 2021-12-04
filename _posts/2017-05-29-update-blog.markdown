@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "博客评论系统更新记录"
-subtitle:   "博客更新"
+title:      "[博客更新] 博客评论系统更新记录"
+subtitle:   ""
 date:       2017-05-29 00:00:02
 author:     "Candycat"
 header-img: "img/in-post/default-bg.jpg"

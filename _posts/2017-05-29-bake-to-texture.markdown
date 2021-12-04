@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      "Bake Shading to Texture踩坑记录"
-subtitle:   "踩坑记录"
+title:      "[总结] Bake Shading to Texture踩坑记录"
+subtitle:   ""
 date:       2017-05-29 00:00:01
 author:     "Candycat"
 header-img: "img/in-post/default-bg.jpg"
 tags:
-    - 工作记录
+    - 总结
 ---
 
 ## 写在前面

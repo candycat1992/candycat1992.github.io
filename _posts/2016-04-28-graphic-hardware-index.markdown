@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Graphics Hardware的相关资料"
-subtitle:   "Graphics Hardware"
+title:      "[Graphics Hardware] 相关资料"
+subtitle:   ""
 date:       2016-04-28 12:00:00
 author:     "Candycat"
 header-img: "img/in-post/graphics-hardware-bg.jpg"

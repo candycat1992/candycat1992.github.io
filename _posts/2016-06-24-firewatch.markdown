@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      "Firewatch中的一些技术"
-subtitle:   "Game Art Tricks"
+title:      "[Game Tricks] Firewatch中的一些技术"
+subtitle:   ""
 date:       2016-06-24 12:00:00
 author:     "Candycat"
 header-img: "img/in-post/firewatch.jpg"
 tags:
-    - Game Art Tricks
+    - Game Tricks
 ---
 
 视频：[GDC 2016](http://www.gdcvault.com/play/1023191/Making-the-World-of)，[GDC 2015](http://www.gdcvault.com/play/1022295/The-Art-of)

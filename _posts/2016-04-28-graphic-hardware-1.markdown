@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "Graphics Hardware - Perspective-Correct Interpolation"
-subtitle:   "Real-Time Rendering"
+title:      "[Graphics Hardware] Perspective-Correct Interpolation"
+subtitle:   "「Real-Time Rendering」"
 date:       2016-05-05 12:00:00
 author:     "Candycat"
 header-img: "img/in-post/graphics-hardware-bg.jpg"

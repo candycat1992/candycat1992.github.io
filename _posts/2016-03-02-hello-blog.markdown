@@ -1,12 +1,12 @@
 ---
 layout:     post
-title:      "我的独立博客"
-subtitle:   "第一篇"
+title:      "[博客更新] 我的独立博客"
+subtitle:   "「第一篇」"
 date:       2016-03-02 12:00:00
 author:     "Candycat"
 header-img: "img/in-post/default-bg.jpg"
 tags:
-    - 闲谈
+    - 博客更新
 ---
 
 ## 写在前面
