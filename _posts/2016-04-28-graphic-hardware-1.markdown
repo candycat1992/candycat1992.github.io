@@ -7,7 +7,7 @@ author:     "Candycat"
 header-img: "img/in-post/graphics-hardware-bg.jpg"
 tags:
     - Graphics Hardware
-    - 读书笔记
+    - 笔记
 ---
 
 本文是对Real-Time Rendering一书中第18章Graphics Hardware的读书笔记。这一节比较短，讲的是透视正确的插值。
