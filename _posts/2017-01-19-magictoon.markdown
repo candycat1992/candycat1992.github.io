@@ -1,5 +1,5 @@
 ---
-title:      "[Project] MagicToon: A 2D-to-3D Creative Cartoon Modeling System with Mobile AR"
+title:      "「Project」MagicToon: A 2D-to-3D Creative Cartoon Modeling System with Mobile AR"
 layout:     default
 date:       2017-01-18 00:00:01
 author:     "Candycat"

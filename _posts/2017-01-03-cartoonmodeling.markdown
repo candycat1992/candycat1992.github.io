@@ -1,5 +1,5 @@
 ---
-title:      "[Project] An Interactive 2D-to-3D Cartoon Modeling System"
+title:      "「Project」An Interactive 2D-to-3D Cartoon Modeling System"
 layout:     default
 date:       2017-01-02 00:00:01
 author:     "Candycat"

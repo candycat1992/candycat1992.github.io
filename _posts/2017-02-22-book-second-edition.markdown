@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "[闲谈] 一本技术书籍是如何出版的……"
-subtitle:   "「我的书」"
+title:      "「闲谈」一本技术书籍是如何出版的……"
+subtitle:   "我的书"
 date:       2017-02-22 00:00:01
 author:     "Candycat"
 header-img: "img/in-post/2017-02-22-book-second-edition/book-title.jpg"

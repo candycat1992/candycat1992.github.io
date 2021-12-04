@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "[Game Tricks] Diablo的特效实现"
+title:      "「Game Tricks」Diablo的特效实现"
 subtitle:   ""
 date:       2016-06-25 00:00:01
 author:     "Candycat"

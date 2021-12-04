@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "[总结] Bake Shading to Texture踩坑记录"
+title:      "「总结」Bake Shading to Texture踩坑记录"
 subtitle:   ""
 date:       2017-05-29 00:00:01
 author:     "Candycat"

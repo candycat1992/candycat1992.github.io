@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "[Game Tricks] Smoke材质的二三事"
+title:      "「Game Tricks」Smoke材质的二三事"
 subtitle:   ""
 date:       2017-07-14 00:00:02
 author:     "Candycat"

@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      "[Game Tricks] 地形纹理合并"
-subtitle:   "「Unity Shader」"
+title:      "「Game Tricks」地形纹理合并"
+subtitle:   "Unity Shader"
 date:       2016-11-28 00:00:01
 author:     "Candycat"
 header-img: "img/in-post/2016-11-28-blend-terrain-textures/terrain_title.jpg"

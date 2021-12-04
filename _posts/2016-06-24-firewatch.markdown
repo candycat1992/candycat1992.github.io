@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "[Game Tricks] Firewatch中的一些技术"
+title:      "「Game Tricks」Firewatch中的一些技术"
 subtitle:   ""
 date:       2016-06-24 12:00:00
 author:     "Candycat"

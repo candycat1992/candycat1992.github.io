@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "[Game Tricks] 消除纹理重复感的两种方法"
+title:      "「Game Tricks」消除纹理重复感的两种方法"
 subtitle:   "「Unity Shader」"
 date:       2016-11-29 00:00:01
 author:     "Candycat"

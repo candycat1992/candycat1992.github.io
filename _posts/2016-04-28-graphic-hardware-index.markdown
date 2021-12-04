@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "[Graphics Hardware] 相关资料"
+title:      "「Graphics Hardware」相关资料"
 subtitle:   ""
 date:       2016-04-28 12:00:00
 author:     "Candycat"
