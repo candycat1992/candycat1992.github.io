@@ -12,7 +12,7 @@ tags:
 <header class="intro-header" style="background-image: url('{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}')">
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+            <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1">
                 <div class="site-heading" id="tag-heading">
                     <h1><font size="8">An Interactive 2D-to-3D Cartoon Modeling System</font></h1>
                 </div>
@@ -42,7 +42,7 @@ tags:
 <!-- Main Content -->
 <div class="container">
 	<div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="col-lg-10 col-lg-offset-0 col-md-10 col-md-offset-1">
 			<h4>Authors</h4>
 			<p>
 				Lele Feng, Xubo Yang, Shuangjiu Xiao, Fan Jiang<br />
