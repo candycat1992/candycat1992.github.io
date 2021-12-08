@@ -107,7 +107,7 @@ Shader "Smoke Frame" {
 				float time = floor(frame);
 				float row = floor(time / subImages.y);
 				float column = time - row * subImages.x;
-				uv = uv + half2(column, -row);
+				uv = uv + half2(column, subImages.x - 1 -row);
 
 				uv.x /= subImages.x;
 				uv.y /= subImages.y;
@@ -284,5 +284,4 @@ Shader "Smoke Particle" {
 }
 
 ```
-
 
