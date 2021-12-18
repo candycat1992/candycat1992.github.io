@@ -9,7 +9,7 @@ tags:
     - Graphics Study
 ---
 
-# 前言
+## 前言
 
 12月12日是这篇博客的预期发布时间，写Github博客的麻烦之一就是要用发布时间提前命名博客名称，但实际发布是12月18号，没错我鸽了一周，额高估了自己低估了截帧的复杂度，程序员预估的deadline果然容易过分乐观...另外推荐下之前博客评论里有小伙伴推荐的[Typora](https://typora.io/)，解救我于写GitHub博客插图片的痛苦。
 
@@ -44,7 +44,7 @@ tags:
 
 其中，最后一个部分中绘制近距离阴影的计算我们放到下一篇讲。下面我们就来具体分析上述与阴影相关的各个Pass。
 
-# 处理Scene Stencil
+## 处理Scene Stencil
 
 一开始在场景的GBuffer绘制完成后，初始Stencil Buffer大致如下：
 
@@ -52,7 +52,7 @@ tags:
 
 在开始渲染CSM之前，RDR2会处理上述的Scene Stencil Buffer。总体来说，这些处理的目的是对GBuffer的各个属性进行边缘检测，将有差异的边缘部分在Stencil Buffer中标记出来（对应Stencil的第6个bit），之后会靠这些标记为屏幕边界像素的计算抗锯齿后的阴影。这个标记处理可以分为两个Screen Pass。
 
-## Screen Pass 0：标记Stencil的差异部分
+### Screen Pass 0：标记Stencil的差异部分
 
 第一个Screen Pass的输入就是Stencil Buffer本身。由于RDR2开启了8x MSAA来渲染GBuffer，因此在这个Pixel Shader里可以为每个Pixel手动采样8x MSAA的8个samples，分析它们的Stencil值的差异，据此来计算边缘检测。这个Pass的伪代码大致如下：
 
@@ -88,7 +88,7 @@ pixel_shader (every pixel with screen position (x, y))
 
 注意到上图中大部分标红区域相当于Stencil的边缘检测结果，而大片的红色区域（似乎是某些特定的墙壁和灌木部分）就对应了Stencil & 0x20的部分。
 
-## Screen Pass 1：标记GBuffer的差异部分
+### Screen Pass 1：标记GBuffer的差异部分
 
 第二个Screen Pass会对Stencil Buffer进行真正的标记。整个Pass会利用Stencil Test忽略那些Stencil已经被标记为0x20的部分，而只修改其余部分像素的Stencil。下图显示了这个Pass的Stencil Test结果（红色为Stencil & 0x20部分，绿色为!(Stencil & 0x20)部分）：
 
@@ -134,13 +134,13 @@ pixel_shader (every pixel with screen position (x, y))
 
 可以发现，现在所有的边界像素都在Stencil Buffer中被标记了出来。
 
-# 绘制CSM
+## 绘制CSM
 
 平行光的Shadowmap使用了常见的CSM策略。RDR2共使用了四级CSM，每一级分辨率为2048x2048，总共分辨率为2048x8192：
 
 <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/csm.png" alt="csm" style="zoom:80%;" />
 
-## 绘制电线的Mask和Shadowmap
+### 绘制电线的Mask和Shadowmap
 
 RDR2对于电线这种很细的物体的CSM是单独另开Pass进行绘制的。除了绘制到上面的CSM中，还额外分配了一张格式为A8_UNORM、大小为2048x8192的纹理作为Color RT，这张RT记录了电线的Mask信息：
 
@@ -148,11 +148,11 @@ RDR2对于电线这种很细的物体的CSM是单独另开Pass进行绘制的。
 
 这张Mask会在后面计算CSM阴影的时候用到。
 
-# 处理CSM计算最小/最大深度值
+## 处理CSM计算最小/最大深度值
 
 这部分计算的主要目的是为CSM的每一级Shadowmap分别计算不同半径范围内的最小/最大深度值，将结果保存到另一张RT里，以便在后续的Pass里计算软阴影。这部分计算可以再细分为以下两个部分。
 
-## 初始化四分之一分辨率的深度图
+### 初始化四分之一分辨率的深度图
 
 绘制完整个场景的CSM后，RDR2会根据它再生成两张四分之一分辨率（512x2048）、格式均为R16G16的RTs：
 
@@ -191,7 +191,7 @@ compute_shader (every pixel in RT1 with position (x, y))
 
 通过4次Gather计算，RT1的每个像素可以计算在全分辨率CSM下该点周围半径2个像素大小范围（共16个有效像素）内的最小深度值和最大深度值。
 
-## 计算更大范围的最小/最大深度值
+### 计算更大范围的最小/最大深度值
 
 RDR2使用了更多的Pass去计算更大半径范围的最小和最大深度值。这个部分包含了4个Compute Pass，每个Pass负责处理初始化Pass中输出的RT1（即四分之一分辨率下的最小/最大深度值）中的某一级Cascade，为其计算一定半径内阴影深度的最大和最小值，并将结果存储到另一张512x2048的RT里。这部分伪代码如下：
 
@@ -231,7 +231,7 @@ compute_shader (every pixel in Cascade0/1/2/3 in RT1 with position (x, y))
 
 <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/shadow-dilation-erosion.png" alt="shadow-dilation-erosion" style="zoom:80%;" />
 
-# 计算平行光阴影
+## 计算平行光阴影
 
 RDR2的平行光阴影共包括两个部分：
 
@@ -254,7 +254,7 @@ RDR2的平行光阴影共包括两个部分：
 
 每种距离的阴影计算来源不同的，我们先来看远距离阴影的计算部分。
 
-## 绘制远距离阴影
+### 绘制远距离阴影
 
 我们之前选取的这一帧截图由于远处大部分区域被房屋遮挡住了，看不太出来远距离阴影的变化，因此这里我们临时换成另一帧远距离阴影计算前后变换更明显的图像进行说明：
 
@@ -271,7 +271,7 @@ RDR2的平行光阴影共包括两个部分：
 
 这些阴影的计算都不依赖CSM，而是使用其他的数据计算实现。
 
-### 云的阴影
+#### 云的阴影
 
 云的阴影计算比较容易理解，主要还是依赖Shadowmap。RDR2为体积云渲染了另一张Shadowmap：
 
@@ -308,7 +308,7 @@ pixel_shader (every pixel with screen position (x, y))
 
 体积云的阴影覆盖范围似乎是有限的，所以RDR2考虑了当前像素点距离覆盖边界的权重，当超过体积云阴影覆盖范围时就会退化到阴影值1。
 
-### 屏幕空间阴影
+#### 屏幕空间阴影
 
 RDR2会在屏幕空间沿着光源方向计算一定数目的shadow trace（在截帧数据中NumTrace = 12），比较每个trace point的深度值和Scene Depth中的深度值计算屏幕空间的阴影。这部分伪代码如下：
 
@@ -351,7 +351,7 @@ pixel_shader (every pixel with screen position (x, y))
 
 其实计算屏幕空间阴影的时候还是有很多细节处理的，比如RDR2考虑了Stencil值和是否是背光面来影响trace的距离、步数以及最终的阴影权重，这部分计算因为个人能力有限理解还不到位就不写出来误导人了。
 
-### 烘焙阴影
+#### 烘焙阴影
 
 这部分计算很有意思，妙啊妙啊。RDR2应该是提前烘焙了8个方向的平行光入射角度下整个地图（覆盖大约12.5km x 12.5km）中某些大型遮挡物的阴影投影结果，把它们存储到两张分辨率为512x512、格式为R16G16B16A16的纹理中，一共有8个方向的阴影信息，绑定到Pixel Shader的Input Texture 6&7上：
 
@@ -400,7 +400,7 @@ pixel_shader (every pixel with screen position (x, y))
 
 这种方法当然只是一种近似，它的可行性建立在一个重要的假设上：当固定光源XY平面角度且仰角角度从小到大变化时，地图上每个观察点的阴影变化是单调的。这一假设在充分空旷环境下绝大部分时候是成立的，但对于有复杂遮挡物的环境来说，它明显有很多无法成立的情况，所以我猜测RDR2可能烘焙的是一些比较大结构的遮挡物的阴影投影状况。
 
-### 地形阴影
+#### 地形阴影
 
 这部分是我猜测绘制的是地形阴影，因为这部分计算主要依靠采样Pixel Shader的Input Texture 8（左图），它是一张分辨率为1024x1024、格式为R16_UNORM的纹理，看起来像是RDR2整个地图环境地形的归一化后的高度图：
 
@@ -438,6 +438,6 @@ pixel_shader (every pixel with screen position (x, y))
 
 从截帧来看，用来归一化Heightmap使用的MaxHeight大约为700~800米，BlendHeight大约为10米~20米。
 
-## 绘制近距离阴影
+### 绘制近距离阴影
 
 写不动了，我们阴影篇（下）再见哈。
