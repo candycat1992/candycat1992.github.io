@@ -11,15 +11,15 @@ tags:
 
 ## 前言
 
-12月12日是这篇博客的预期发布时间，没错我鸽了一周，额高估了自己低估了截帧的复杂度，程序员预估的deadline果然容易过分乐观--||
+12月12日是这篇博客的预期发布时间，写Github博客的麻烦之一就是要用发布时间提前命名博客名称，但实际发布是12月18号，没错我鸽了一周，额高估了自己低估了截帧的复杂度，程序员预估的deadline果然容易过分乐观...另外推荐下之前博客评论里有小伙伴推荐的[Typora](https://typora.io/)，解救我于写GitHub博客插图片的痛苦。
 
 ---
 
 回到正题，我一直感叹RDR2的阴影渲染质量很高，数毛社有篇[分析视频](https://youtu.be/Dnzuh6I8gnM?list=PLrL3xbgUaxxjBKisD282x6YbGIGwowTCq&t=520)演示了RDR2的阴影表现，没玩过的小伙伴一定不要错过。RDR2的阴影有非常出色的Contact Shadow，即距离物体更近的阴影更加锐利，反之越远越模糊。这个模糊半径甚至和当前的天气状况有关，可谓丧心病狂：
 
-<img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/contact-shadow0.png" alt="contact-shadow0" style="zoom:60%;" />  <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/contact-shadow1.png" alt="contact-shadow1" style="zoom:60%;" />
+<img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/contact-shadow0.png" alt="contact-shadow0" style="zoom:40%;" />  <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/contact-shadow1.png" alt="contact-shadow1" style="zoom:40%;" />
 
-因此这一篇我们就主要分析来RDR2是如何绘制平行光阴影的。其实本来想一篇博客就写完的，但没想到内容有点多，就分为上下篇吧。
+因此，这一篇我们就主要分析来RDR2是如何绘制平行光阴影的。其实本来想一篇博客就写完的，但没想到内容有点多，就分为上下篇吧。
 
 ---
 
@@ -401,7 +401,7 @@ pixel_shader (every pixel with screen position (x, y))
 
 这部分是我猜测绘制的是地形阴影，因为这部分计算主要依靠采样Pixel Shader的Input Texture 8（左图），它是一张分辨率为1024x1024、格式为R16_UNORM的纹理，看起来像是RDR2整个地图环境地形的归一化后的高度图，刚好对应了游戏地图（右图，来源[Reddit](https://www.reddit.com/r/reddeadredemption/comments/gimo7v/10mp_rdr2_game_map_redux_enhanced_with_hillshaded/)）中的山区部分：
 
-<img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/heightmap.png" alt="heightmap" style="zoom:50%;" />   <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/rdr2-map.jpg" alt="rdr2-map" style="zoom:50%;" />
+<img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/heightmap.png" alt="heightmap" style="zoom:30%;" />   <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/rdr2-map.jpg" alt="rdr2-map" style="zoom:30%;" />
 
 这部分计算比较好理解，就是沿着光源方向、按照固定步长去trace一定数目的高度图（在截帧中NumTrace = 8），比较每次trace point的高度值和Heightmap中记录的高度值，据此计算阴影。这部分计算伪代码如下：
 
