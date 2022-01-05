@@ -4,7 +4,7 @@ title:      "「闲谈」UE5真好玩"
 subtitle:   ""
 date:       2022-01-05 00:49:02
 author:     "Candycat"
-header-img: "img/in-post/default-bg.png"
+header-img: "img/in-post/default-bg.jpg"
 tags:
     - 闲谈
 ---
@@ -21,11 +21,11 @@ tags:
 
 **Blender Cycles渲染结果**：
 
-![Snipaste_2022-01-05_23-22-03](../img/in-post/2022-01-05-blender-to-ue5/Snipaste_2022-01-05_23-22-03.jpg)
+![Snipaste_2022-01-05_23-22-03](http://candycat1992.github.io/img/in-post/2022-01-05-blender-to-ue5/Snipaste_2022-01-05_23-22-03.jpg)
 
 **UE5实时渲染结果**：
 
-![HighresScreenshot00007](../img/in-post/2022-01-05-blender-to-ue5/HighresScreenshot00007.png)
+![HighresScreenshot00007](http://candycat1992.github.io/img/in-post/2022-01-05-blender-to-ue5/HighresScreenshot00007.png)
 
 （没头发的萌妹子秒变打工人，头发真的很重要）尽管UE5缺少某些Blender的渲染features，比如光源的软阴影、面光源计算与离线有差异等，但也十分接近了。
 
