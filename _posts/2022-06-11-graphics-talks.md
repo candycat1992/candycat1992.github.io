@@ -26,13 +26,13 @@ tags:
 
 ### [GDC 2022] One Frame in 'Halo Infinite'
 
-链接：https://gdcvault.com/play/1027657/One-Frame-in-Halo-Infinite，https://gdcvault.com/play/1027724/One-Frame-in-Halo-Infinite
+链接：[PDF](https://gdcvault.com/play/1027657/One-Frame-in-Halo-Infinite)，[Video](https://gdcvault.com/play/1027724/One-Frame-in-Halo-Infinite)
 
 公司：343 Industries - Microsoft
 
 ### [GDC 2022] An Overview of the 'Diablo II: Resurrected' Renderer
 
-链接：https://gdcvault.com/play/1027558/An-Overview-of-the-Diablo，https://gdcvault.com/play/1028027/An-Overview-of-the-Diablo
+链接：[PDF](https://gdcvault.com/play/1027558/An-Overview-of-the-Diablo)，[Video](https://gdcvault.com/play/1028027/An-Overview-of-the-Diablo)
 
 公司：Blizzard Entertainment
 
@@ -66,24 +66,24 @@ tags:
 
 ### [GDC 2022] New Graphics Features for 'Forspoken'
 
-链接：https://gdcvault.com/play/1027652/Advanced-Graphics-Summit-New-Graphics，https://gdcvault.com/play/1027751/Advanced-Graphics-Summit-New-Graphics
+链接：[PDF](https://gdcvault.com/play/1027652/Advanced-Graphics-Summit-New-Graphics)，[Video](https://gdcvault.com/play/1027751/Advanced-Graphics-Summit-New-Graphics)
 
 公司：Luminous Productions Co., Ltd.
 
 简介：作者是开发《最终幻想15》的日本公司，Forspoken是他们开发的一款所谓”AAA“游戏，使用自研引擎Luminous Engine开发，主要介绍引擎渲染的各种features，干货不多随便看看吧：
 * Model Rendering：包括GBuffer Layout（Normal使用了20 bits的Octahedral Normal Encoding），使用Translated World Space（就是UE的做法）去做坐标变换来提高矩阵乘法之后的Position精度
 * Shadows：使用Static Shadowmap提升CSM性能、Screen Space Shadow、Hybrid Ray-Traced Shadows/Ambient Occlusion
-Lighting & Post Effects：
-* PRT：全局光照使用了PRT，使用ray tracing去bake，先生成cubemaps然后投影到SH上，通过在场景里摆放若干volumes去生成probes，在实时判断这些volumes与视椎体的可见性判断是否需要渲染
-* Specular Correction：由于specular probe的密度远小于irradiance probe，所以会使用Irradiance的采样强度去做Specular Correction，做法是拿irradiance的SH0和ibl的SH0做比值，拿结果去缩放ibl采样的亮度
-* Volumetric Cloud：解决体积云与半透明物体的混合问题，依靠记录若干固定density level的depths值，判断半透明物体位于哪两个levels之间再使用其对应的alpha值与半透明进行混合
-* Wide Gamut：支持广色域空间HDR
+* Lighting & Post Effects：
+    * PRT：全局光照使用了PRT，使用ray tracing去bake，先生成cubemaps然后投影到SH上，通过在场景里摆放若干volumes去生成probes，在实时判断这些volumes与视椎体的可见性判断是否需要渲染
+    * Specular Correction：由于specular probe的密度远小于irradiance probe，所以会使用Irradiance的采样强度去做Specular Correction，做法是拿irradiance的SH0和ibl的SH0做比值，拿结果去缩放ibl采样的亮度
+    * Volumetric Cloud：解决体积云与半透明物体的混合问题，依靠记录若干固定density level的depths值，判断半透明物体位于哪两个levels之间再使用其对应的alpha值与半透明进行混合
+    * Wide Gamut：支持广色域空间HDR
 * Optimizations：一些优化包括GBuffer Pass如何sort、使用Async Compute提高并行、使用VRS（见GDC 2022的AMD的演讲）减少诸如VFX这种heavy pixel pass的开销
 * Automatic LOD Generation：模型自动LOD生成
 
 ### [GDC 2022] Breaking Down the World of Athia: The Technologies of Forspoken
 
-链接：https://gdcvault.com/play/1027809/
+链接：[Video](https://gdcvault.com/play/1027809/)
 
 公司：AMD, Luminous Productions
 
@@ -98,13 +98,13 @@ Lighting & Post Effects：
 
 ### [GDC 2022] A Guided Tour of Blackreef: Rendering Technologies in Deathloop
 
-链接：https://gdcvault.com/browse/gdc-22/?categories=InPgTaVa#page-1
+链接：[Video](https://gdcvault.com/play/1028106/)
 
 公司：AMD
 
 ### [GDC 2022] Simulating Tropical Weather in 'Far Cry 6'
 
-链接：https://gdcvault.com/play/1027675/Simulating-Tropical-Weather-in-Far，https://gdcvault.com/play/1027725/Simulating-Tropical-Weather-in-Far
+链接：[PDF](https://gdcvault.com/play/1027675/Simulating-Tropical-Weather-in-Far)，[Video](https://gdcvault.com/play/1027725/Simulating-Tropical-Weather-in-Far)
 
 公司：Ubisoft Toronto, Ubisoft Montreal
 
@@ -124,7 +124,7 @@ Lighting & Post Effects：
 
 ### [Digital Dragons 2021] Rendering Watch Dogs
 
-链接：https://www.youtube.com/watch?v=RUWAVErMJto
+链接：[Video](https://www.youtube.com/watch?v=RUWAVErMJto)
 
 公司：Ubisoft
 
@@ -134,7 +134,7 @@ Lighting & Post Effects：
 
 ### [GDC 2022] Advanced Graphics Summit: 'Cyberpunk 2077': Bringing Light to Night City
 
-链接：https://gdcvault.com/play/1027959/Advanced-Graphics-Summit-Cyberpunk-2077
+链接：[Video](https://gdcvault.com/play/1027959/Advanced-Graphics-Summit-Cyberpunk-2077)
 
 公司：CD Projekt RED
 
@@ -161,7 +161,7 @@ Lighting & Post Effects：
 
 ### [GDC 2022] Recalibrating Our Limits: Lighting on 'Ratchet and Clank: Rift Apart'
 
-链接：https://gdcvault.com/play/1027666/Recalibrating-Our-Limits-Lighting-on，https://gdcvault.com/play/1027792/Recalibrating-Our-Limits-Lighting-on
+链接：[PDF](https://gdcvault.com/play/1027666/Recalibrating-Our-Limits-Lighting-on)，[Video](https://gdcvault.com/play/1027792/Recalibrating-Our-Limits-Lighting-on)
 
 公司：Insomniac Games
 
@@ -177,15 +177,15 @@ Lighting & Post Effects：
 * Developing A Look：简单介绍了下怎么从原画到最终效果验收合格的一个场景示例
 * QA环节有人问如何保证SDR和HDR效果一致性，回答是美术都是在HDR显示器下工作的（壕），会经常跑游戏看效果
 
-### [GDC 2021] Lifting the Fog: Geometry & Lighting in 'Demon's Souls'
+### [GDC 2021] Advanced Graphics Summit: Lifting the Fog: Geometry & Lighting in 'Demon's Souls'
 
-链接：https://gdcvault.com/play/1027011/Advanced-Graphics-Summit-Lifting-the
+链接：[PDF](https://gdcvault.com/play/1027011/Advanced-Graphics-Summit-Lifting-the), [Video](https://gdcvault.com/play/1027469/Advanced-Graphics-Summit-Lifting-the)
 
 公司：Bluepoint Games
 
 ### [SIGGRAPH 2021] Real-Time Samurai Cinema: Lighting, Atmosphere, and Tonemapping in Ghost of Tsushima
 
-链接：https://www.youtube.com/watch?v=GOee6lcEbWg&feature=emb_title, http://advances.realtimerendering.com/s2021/jpatry_advances2021/index.html
+链接：[PDF](http://advances.realtimerendering.com/s2021/jpatry_advances2021/index.html), [Video](https://www.youtube.com/watch?v=GOee6lcEbWg&feature=emb_title)
 
 公司：Sucker Punch Productions
 
@@ -195,19 +195,19 @@ Lighting & Post Effects：
 
 ### [SIGGRAPH 2021] Large-Scale Global Illumination at Activision
 
-链接：https://www.youtube.com/watch?v=snXTGrjfOvQ
+链接：[Video](https://www.youtube.com/watch?v=snXTGrjfOvQ)
 
 公司：Activision
 
 ### [SIGGRAPH 2021] Radiance Caching for Real-Time Global Illumination
 
-链接：https://www.youtube.com/watch?v=2GYXuM10riw&feature=emb_title
+链接：[Video](https://www.youtube.com/watch?v=2GYXuM10riw&feature=emb_title)
 
 公司：Epic Games
 
 ### [SIGGRAPH 2021] Global Illumination Based on Surfels
 
-链接：https://www.youtube.com/watch?v=Uea9Wq1XdA4&feature=emb_title
+链接：[Video](https://www.youtube.com/watch?v=Uea9Wq1XdA4&feature=emb_title)
 
 公司：Electronic Art
 
@@ -217,7 +217,7 @@ Lighting & Post Effects：
 
 ### [GDC 2021] Advanced Graphics Summit: Shadows of Cold War: A Scalable Approach to Shadowing
 
-链接：https://gdcvault.com/play/1027442/Advanced-Graphics-Summit-Shadows-of
+链接：[Video](https://gdcvault.com/play/1027442/Advanced-Graphics-Summit-Shadows-of)
 
 公司：Treyarch
 
@@ -227,7 +227,7 @@ Lighting & Post Effects：
 
 ### [GDC 2022] The Real-Time Volumetric Superstorms of 'Horizon Forbidden West'
 
-链接：https://gdcvault.com/play/1027688/The-Real-Time-Volumetric-Superstorms，https://gdcvault.com/play/1028023/The-Real-Time-Volumetric-Superstorms
+链接：[PDF](https://gdcvault.com/play/1027688/The-Real-Time-Volumetric-Superstorms)，[Video](https://gdcvault.com/play/1028023/The-Real-Time-Volumetric-Superstorms)
 
 公司：Guerrilla Games
 
@@ -250,7 +250,7 @@ Lighting & Post Effects：
 
 ### [GDC 2022] Performant Reflective Beauty: Hybrid Raytracing with Far Cry 6
 
-链接：https://gdcvault.com/play/1028107/
+链接：[Video](https://gdcvault.com/play/1028107/)
 
 公司：Ubisoft Toronto, AMD
 
@@ -264,13 +264,13 @@ Lighting & Post Effects：
 
 ### [GDC 2022] Real-Time Ray Tracing in 'Hitman 3'
 
-链接：https://gdcvault.com/play/1027665/Advanced-Graphics-Summit-Real-Time
+链接：[Video](https://gdcvault.com/play/1027665/Advanced-Graphics-Summit-Real-Time)
 
 公司：IO Interactive
 
 ### [GDC 2022] Bringing 4K Ray Traced Visuals to the World of Hitman 3
 
-链接：https://gdcvault.com/play/1027828/
+链接：[Video](https://gdcvault.com/play/1027828/)
 
 公司：IO Interactive, Intel
 
@@ -280,13 +280,13 @@ Lighting & Post Effects：
 
 ### [GDC 2022] Adventures with Deferred Texturing in 'Horizon Forbidden West'
 
-链接：https://gdcvault.com/play/1027553/Adventures-with-Deferred-Texturing-in，https://gdcvault.com/play/1028035/Adventures-with-Deferred-Texturing-in
+链接：[PDF](https://gdcvault.com/play/1027553/Adventures-with-Deferred-Texturing-in)，[Video](https://gdcvault.com/play/1028035/Adventures-with-Deferred-Texturing-in)
 
 公司：Guerrilla
 
 ### [GDC 2022] Advanced Graphics Summit: Designing the Terrain System of 'Flight Simulator': Representing the Earth
 
-链接：https://gdcvault.com/play/1027581/Advanced-Graphics-Summit-Designing-the，https://gdcvault.com/play/1027838/Advanced-Graphics-Summit-Designing-the
+链接：[PDF](https://gdcvault.com/play/1027581/Advanced-Graphics-Summit-Designing-the)，[Video](https://gdcvault.com/play/1027838/Advanced-Graphics-Summit-Designing-the)
 
 公司：Asobo Studio
 
@@ -300,25 +300,25 @@ Lighting & Post Effects：
 
 ### [GDC 2021] Advanced Graphics Summit: Procedural Grass in 'Ghost of Tsushima'
 
-链接：https://gdcvault.com/play/1027033/Advanced-Graphics-Summit-Procedural-Grass
+链接：[PDF](https://gdcvault.com/play/1027033/Advanced-Graphics-Summit-Procedural-Grass)
 
 公司：Sucker Punch Productions
 
 ### [GDC 2021] Samurai Landscapes: Building and Rendering Tsushima Island on PS4
 
-链接：https://gdcvault.com/play/1027352/Samurai-Landscapes-Building-and-Rendering
+链接：[Video](https://gdcvault.com/play/1027352/Samurai-Landscapes-Building-and-Rendering)
 
 公司：Sucker Punch Productions
 
 ### [GDC 2021] Boots on the Ground: The Terrain of Call of Duty
 
-链接：https://research.activision.com/publications/2021/09/boots-on-the-ground--the-terrain-of-call-of-duty
+链接：[PDF](https://research.activision.com/publications/2021/09/boots-on-the-ground--the-terrain-of-call-of-duty)
 
 公司：Teryarch
 
 ### [SIGGRAPH 2021] Experimenting with Concurrent Binary Trees for Large Scale Terrain Rendering
 
-链接：https://www.youtube.com/watch?v=0TzgFwDmbGg
+链接：[Video](https://www.youtube.com/watch?v=0TzgFwDmbGg)
 
 公司：Unity Technologies
 
@@ -328,7 +328,7 @@ Lighting & Post Effects：
 
 ### [GDC 2021] Blowing from the West: Simulating Wind in 'Ghost of Tsushima'
 
-链接：https://gdcvault.com/play/1027124/Blowing-from-the-West-Simulating，https://blog.playstation.com/2021/01/12/how-stunning-visual-effects-bring-ghost-of-tsushima-to-life/									
+链接：[PDF](https://gdcvault.com/play/1027124/Blowing-from-the-West-Simulating)，[Video](https://blog.playstation.com/2021/01/12/how-stunning-visual-effects-bring-ghost-of-tsushima-to-life/		)							
 公司：Sucker Punch Productions
 
 ## Particles
@@ -337,7 +337,7 @@ Lighting & Post Effects：
 
 ### [GDC 2021] Enhancement of Particle Simulation Using Screen Space Techniques in 'The Last of Us: Part II'
 
-链接：https://gdcvault.com/play/1027356/Enhancement-of-Particle-Simulation-Using
+链接：[Video](https://gdcvault.com/play/1027356/Enhancement-of-Particle-Simulation-Using)
 
 公司：Naughty Dog
 
@@ -347,7 +347,7 @@ Lighting & Post Effects：
 
 ### [GDC 2021] Zen of Streaming: Building and Loading 'Ghost of Tsushima'
 
-链接：https://gdcvault.com/play/1027205/Zen-of-Streaming-Building-and
+链接：[Video](https://gdcvault.com/play/1027205/Zen-of-Streaming-Building-and)
 
 公司：Sucker Punch Productions
 
@@ -357,7 +357,7 @@ Lighting & Post Effects：
 
 ### [SIGGRAPH 2021] A Deep Dive into Nanite Virtualized Geometry
 
-链接：https://www.youtube.com/watch?v=eviSykqSUUw&feature=emb_title
+链接：[Video](https://www.youtube.com/watch?v=eviSykqSUUw&feature=emb_title)
 
 公司：Epic Games
 
@@ -367,13 +367,13 @@ Lighting & Post Effects：
 
 ### [GDC 2022] FidelityFX Super Resolution 2.0
 
-链接：https://gdcvault.com/play/1027829/
+链接：[Video](https://gdcvault.com/play/1027829/)
 
 公司：AMD
 
 ### [SIGGRAPH 2021] Improved Spatial Upscaling through FidelityFX Super Resolution for Real-Time Game Engines
 
-链接：https://www.youtube.com/watch?v=aKyjQPq5aUU
+链接：[Video](https://www.youtube.com/watch?v=aKyjQPq5aUU)
 
 公司：AMD
 
@@ -383,7 +383,7 @@ Lighting & Post Effects：
 
 ### [GDC 2022] Hair and Fur Rendering in 'Diablo II: Rescurrected'
 
-链接：https://gdcvault.com/play/1028080/Hair-and-Fur-Rendering-in
+链接：[Video](https://gdcvault.com/play/1028080/Hair-and-Fur-Rendering-in)
 
 公司：Bizzard Entertainment
 
@@ -395,7 +395,7 @@ Lighting & Post Effects：
 
 ### [GDC 2022] Never The Same Twice: Procedural World Handling in 'Returnal'
 
-链接：https://gdcvault.com/play/1028093/Never-The-Same-Twice-Procedural
+链接：[Video](https://gdcvault.com/play/1028093/Never-The-Same-Twice-Procedural)
 
 公司：Housemarque
 
@@ -405,13 +405,13 @@ TA管线或经验相关。
 
 ### [GDC 2022] Visual Effects Summit: How to (Not) Create Textures for VFX
 
-链接：https://gdcvault.com/play/1027741/Visual-Effects-Summit-How-to
+链接：[Video](https://gdcvault.com/play/1027741/Visual-Effects-Summit-How-to)
 
 公司：Wild Sheep Studio
 
 ### [GDC 2022] Technical Artist Summit: Lighting the Way: Efficient Dynamic Lighting & Shadows on Mobile
 
-链接：https://gdcvault.com/play/1027858/Technical-Artist-Summit-Lighting-the
+链接：[Video](https://gdcvault.com/play/1027858/Technical-Artist-Summit-Lighting-the)
 
 公司：NetEase Games
 
@@ -421,7 +421,7 @@ TA管线或经验相关。
 
 ### [GDC 2022] Technical Artist Summit: Finding Harmony in Anime Style and Physically Based Rendering
 
-链接：https://gdcvault.com/play/1027597/Technical-Artist-Summit-Finding-Harmony
+链接：[PDF](https://gdcvault.com/play/1027597/Technical-Artist-Summit-Finding-Harmony)，[Video](https://gdcvault.com/play/1027995/Technical-Artist-Summit-Finding-Harmony)
 
 公司：NetEase Games
 
@@ -435,13 +435,13 @@ TA管线或经验相关。
 
 ### [GDC 2022] Technical Artist Summit: Bringing the World to Your Shaders
 
-链接：https://gdcvault.com/play/1027568/Technical-Artist-Summit-Bringing-the
+链接：[PDF](https://gdcvault.com/play/1027568/Technical-Artist-Summit-Bringing-the)，[Video](https://gdcvault.com/play/1028009/Technical-Artist-Summit-Bringing-the)
 
 公司：Epic Games
 
 ### [GDC 2022] Building the World of 'The Ascent'
 
-链接：https://gdcvault.com/play/1027800/Building-the-World-of-The
+链接：[Video](https://gdcvault.com/play/1027800/Building-the-World-of-The)
 
 公司：Neon Giant
 
@@ -455,7 +455,7 @@ TA管线或经验相关。
 
 ### [GDC 2022] Creating the Many Faces of 'Horizon Forbidden West'
 
-链接：https://gdcvault.com/play/1027878/Creating-the-Many-Faces-of
+链接：[Video](https://gdcvault.com/play/1027878/Creating-the-Many-Faces-of)
 
 公司：Guerilla Games
 
@@ -467,7 +467,7 @@ TA管线或经验相关。
 
 ### [GDC 2021] The Art of Not Reinventing the Wheel in 'Wild Rift' Asset Pipeline
 
-链接：https://gdcvault.com/play/1027061/Technical-Artist-Summit-The-Art
+链接：[PDF](https://gdcvault.com/play/1027061/Technical-Artist-Summit-The-Art)
 
 公司：Riot Games
 
@@ -477,7 +477,7 @@ TA管线或经验相关。
 
 ### [GDC 2022] Shifts and Rifts: Dimensional Tech in 'Ratchet and Clank: Rift Apart'
 
-链接：https://gdcvault.com/play/1027872/Shifts-and-Rifts-Dimensional-Tech
+链接：[Video](https://gdcvault.com/play/1027872/Shifts-and-Rifts-Dimensional-Tech)
 
 公司：Insomniac Games
 
@@ -493,18 +493,18 @@ TA管线或经验相关。
 
 ### [GDC 2022] 'Dead by Daylight': Intergrating Shaders into the User Interface Pipeline
 
-链接：https://gdcvault.com/play/1027893/-Dead-by-Daylight-Integrating
+链接：[Video](https://gdcvault.com/play/1027893/-Dead-by-Daylight-Integrating)
 
 公司：Epic Games
 
 ### [GDC 2021] Driving Innovation: A New Vehicle Pipeline for 'The Last of Us: Part II'
 
-链接：https://gdcvault.com/play/1027001/Driving-Innovation-A-New-Vehicle
+链接：[PDF](https://gdcvault.com/play/1027001/Driving-Innovation-A-New-Vehicle)
 
 公司：Naughty Dog
 
 ### [GDC 2021] Rope Simulation in 'Uncharted 4' and 'The Last of Us: Part 2'
 
-链接：https://gdcvault.com/play/1027351/Rope-Simulation-in-Uncharted-4
+链接：[Video](https://gdcvault.com/play/1027351/Rope-Simulation-in-Uncharted-4)
 
 公司：Naughty Dog
