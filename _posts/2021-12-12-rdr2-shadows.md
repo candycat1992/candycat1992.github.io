@@ -134,25 +134,37 @@ pixel_shader (every pixel with screen position (x, y))
 
 可以发现，现在所有的边界像素都在Stencil Buffer中被标记了出来。
 
-## 绘制CSM
+## CSM Shadow Depth
 
 平行光的Shadowmap使用了常见的CSM策略。RDR2共使用了四级CSM，每一级分辨率为2048x2048，总共分辨率为2048x8192：
 
 <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/csm.png" alt="csm" style="zoom:80%;" />
 
-### 绘制电线的Mask和Shadowmap
+### Wires & Particles
 
-RDR2对于电线这种很细的物体的CSM是单独另开Pass进行绘制的。除了绘制到上面的CSM中，还额外分配了一张格式为A8_UNORM、大小为2048x8192的纹理作为Color RT，这张RT记录了电线的Mask信息：
+RDR2对于电线这种很细以及诸如烟等透明粒子效果的物体的阴影是单独另开Pass进行绘制的。除了绘制到上面的CSM中，还额外分配了一张格式为A8_UNORM、大小同样为2048x8192的纹理作为Color RT，这张RT记录了这些特殊物体的Mask信息，后面全屏计算CSM阴影的时候会用到它：
+
+<img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/wires-and-particles.png" alt="wires" style="zoom:80%;" />
+
+先来看电线的绘制。电线使用了D3D_PRIMITIVE_TOPOLOGY_3_CONTROL_POINT_PATCHLIST作为Primitive Topology，再配合Tessellation Shader绘制出电线的形状：
 
 <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/wires.png" alt="wires" style="zoom:80%;" />
 
-这张Mask会在后面计算CSM阴影的时候用到。
+绘制的电线的Pixel Shader很简单，它会采样一张32x32分辨率（包含4级mips）、格式为BC1_UNORM的纹理，把得到的颜色值输出到那张Mask RT上（混合模式为Alpha Blend），并把深度值渲染到CSM的Shadowmap中（开启了Depth Test）：
 
-## 处理CSM计算最小/最大深度值
+<img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/wires-ps.png" alt="wires" style="zoom:80%;" />
+
+除了电线，这个Pass还会处理半透明粒子的阴影。绘制粒子的Pixel Shader会采样粒子动画的序列帧Atlas，同样会把读取到的粒子透明度值输出到Mask RT上：
+
+<img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/particles-ps.png" alt="wires" style="zoom:80%;" />
+
+跟电线处理不太一样的是，粒子的PS还会采样4次CSM Shadowmap的值，并据此来修改输出到Shadowmap里的深度值。具体原理需要配合Vertex Shader再来分析下。
+
+## CSM Min/Max Depth
 
 这部分计算的主要目的是为CSM的每一级Shadowmap分别计算不同半径范围内的最小/最大深度值，将结果保存到另一张RT里，以便在后续的Pass里计算软阴影。这部分计算可以再细分为以下两个部分。
 
-### 初始化四分之一分辨率的深度图
+### 1/4 CSM Shadow Depth
 
 绘制完整个场景的CSM后，RDR2会根据它再生成两张四分之一分辨率（512x2048）、格式均为R16G16的RTs：
 
@@ -231,7 +243,7 @@ compute_shader (every pixel in Cascade0/1/2/3 in RT1 with position (x, y))
 
 <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/shadow-dilation-erosion.png" alt="shadow-dilation-erosion" style="zoom:80%;" />
 
-## 计算平行光阴影
+## 平行光阴影
 
 RDR2的平行光阴影共包括两个部分：
 
@@ -254,7 +266,7 @@ RDR2的平行光阴影共包括两个部分：
 
 每种距离的阴影计算来源不同的，我们先来看远距离阴影的计算部分。
 
-### 绘制远距离阴影
+### Far Shadow Pass
 
 我们之前选取的这一帧截图由于远处大部分区域被房屋遮挡住了，看不太出来远距离阴影的变化，因此这里我们临时换成另一帧远距离阴影计算前后变换更明显的图像进行说明：
 
@@ -438,6 +450,6 @@ pixel_shader (every pixel with screen position (x, y))
 
 从截帧来看，用来归一化Heightmap使用的MaxHeight大约为700~800米，BlendHeight大约为10米~20米。
 
-### 绘制近距离阴影
+### Near Shadow Pass
 
 写不动了，我们阴影篇（下）再见哈。
