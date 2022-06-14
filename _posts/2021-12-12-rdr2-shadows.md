@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      "「Graphics Study」RDR2渲染分析 — 阴影篇（上）"
+title:      "「Graphics Study」RDR2渲染分析 — 阴影篇"
 subtitle:   ""
 date:       2021-12-12 00:49:02
 author:     "Candycat"
@@ -203,7 +203,7 @@ compute_shader (every pixel in RT1 with position (x, y))
 
 通过4次Gather计算，RT1的每个像素可以计算在全分辨率CSM下该点周围半径2个像素大小范围（共16个有效像素）内的最小深度值和最大深度值。
 
-### 计算更大范围的最小/最大深度值
+### Min/Max  Depth
 
 RDR2使用了更多的Pass去计算更大半径范围的最小和最大深度值。这个部分包含了4个Compute Pass，每个Pass负责处理初始化Pass中输出的RT1（即四分之一分辨率下的最小/最大深度值）中的某一级Cascade，为其计算一定半径内阴影深度的最大和最小值，并将结果存储到另一张512x2048的RT里。这部分伪代码如下：
 
@@ -243,14 +243,14 @@ compute_shader (every pixel in Cascade0/1/2/3 in RT1 with position (x, y))
 
 <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/shadow-dilation-erosion.png" alt="shadow-dilation-erosion" style="zoom:80%;" />
 
-## 平行光阴影
+## Directional Light Shadows
 
 RDR2的平行光阴影共包括两个部分：
 
-* 不使用CSM的远距离阴影
-* 使用CSM的近距离阴影
+* 不使用CSM的远距离阴影（Far Shadows Pass）
+* 使用CSM的近距离阴影（Near Shadows Pass）
 
-这两种类型的阴影会通过设置不同的[Depth Bounds](https://microsoft.github.io/DirectX-Specs/d3d/DepthBoundsTest.html)来处理不同距离的阴影。其中，远距离阴影范围大约覆盖距离摄像机深度值>200米的区域，近距离阴影覆盖距离摄像机深度值<200米的区域。每种类型的阴影绘制会再细分到2个Screen Pass中（共4个Screen Pass），这2个Screen Pass会基于之前处理得到的Stencil Buffer、使用Stencil Test来处理屏幕空间的不同像素部分，第一个Screen Pass处理绝大部分常规像素，第二个Screen Pass处理之前被特殊标记的那些Stencil值或GBuffer值有差异的边界像素部分。这两个Screen Pass的Stencil Test通过结果如下所示：
+这两种类型的阴影会通过设置不同的[Depth Bounds](https://microsoft.github.io/DirectX-Specs/d3d/DepthBoundsTest.html)来处理不同距离的阴影。其中，远距离阴影范围大约覆盖距离摄像机深度值>200米的区域，近距离阴影覆盖距离摄像机深度值<200米的区域。每种类型的阴影绘制会再细分到2个Screen Pass中（共2x2=4个Screen Pass），这2个Screen Pass会基于之前处理得到的Stencil Buffer、使用Stencil Test来处理屏幕空间的不同像素部分，第一个Screen Pass处理绝大部分常规像素，第二个Screen Pass处理之前被特殊标记的那些Stencil值或GBuffer值有差异的边界像素部分。这两个Screen Pass的Stencil Test通过结果如下所示：
 
 |                        Screen Pass 0                         |                        Screen Pass 1                         |
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
@@ -266,24 +266,24 @@ RDR2的平行光阴影共包括两个部分：
 
 每种距离的阴影计算来源不同的，我们先来看远距离阴影的计算部分。
 
-### Far Shadow Pass
+### Far Shadows Pass
 
 我们之前选取的这一帧截图由于远处大部分区域被房屋遮挡住了，看不太出来远距离阴影的变化，因此这里我们临时换成另一帧远距离阴影计算前后变换更明显的图像进行说明：
 
-| Far Shadow Before | Far Shadow After |
+| Far Shadows Before | Far Shadows After |
 | :---: | :---: |
 |<img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/far-shadow-before.png" alt="far-shadow-before" style="zoom:50%;" />|<img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/far-shadow-after.png" alt="far-shadow-after" style="zoom:50%;" />|
 
 可以看到，远距离阴影主要有以下几个计算来源：
 
-* 体积云阴影
-* 屏幕空间阴影
-* 烘焙阴影
-* 地形阴影
+* Cloud Shadows
+* Raytraced Screen Space Shadows
+* Baked Shadows
+* Raytraced Terrain Shadow
 
 这些阴影的计算都不依赖CSM，而是使用其他的数据计算实现。
 
-#### 云的阴影
+#### Cloud Shadows
 
 云的阴影计算比较容易理解，主要还是依赖Shadowmap。RDR2为体积云渲染了另一张Shadowmap：
 
@@ -320,7 +320,7 @@ pixel_shader (every pixel with screen position (x, y))
 
 体积云的阴影覆盖范围似乎是有限的，所以RDR2考虑了当前像素点距离覆盖边界的权重，当超过体积云阴影覆盖范围时就会退化到阴影值1。
 
-#### 屏幕空间阴影
+#### Raytraced Screen Space Shadows
 
 RDR2会在屏幕空间沿着光源方向计算一定数目的shadow trace（在截帧数据中NumTrace = 12），比较每个trace point的深度值和Scene Depth中的深度值计算屏幕空间的阴影。这部分伪代码如下：
 
@@ -363,7 +363,7 @@ pixel_shader (every pixel with screen position (x, y))
 
 其实计算屏幕空间阴影的时候还是有很多细节处理的，比如RDR2考虑了Stencil值和是否是背光面来影响trace的距离、步数以及最终的阴影权重，这部分计算因为个人能力有限理解还不到位就不写出来误导人了。
 
-#### 烘焙阴影
+#### Baked Shadows
 
 这部分计算很有意思，妙啊妙啊。RDR2应该是提前烘焙了8个方向的平行光入射角度下整个地图（覆盖大约12.5km x 12.5km）中某些大型遮挡物的阴影投影结果，把它们存储到两张分辨率为512x512、格式为R16G16B16A16的纹理中，一共有8个方向的阴影信息，绑定到Pixel Shader的Input Texture 6&7上：
 
@@ -412,7 +412,7 @@ pixel_shader (every pixel with screen position (x, y))
 
 这种方法当然只是一种近似，它的可行性建立在一个重要的假设上：当固定光源XY平面角度且仰角角度从小到大变化时，地图上每个观察点的阴影变化是单调的。这一假设在充分空旷环境下绝大部分时候是成立的，但对于有复杂遮挡物的环境来说，它明显有很多无法成立的情况，所以我猜测RDR2可能烘焙的是一些比较大结构的遮挡物的阴影投影状况。
 
-#### 地形阴影
+#### Raytraced Terrain Shadow
 
 这部分是我猜测绘制的是地形阴影，因为这部分计算主要依靠采样Pixel Shader的Input Texture 8（左图），它是一张分辨率为1024x1024、格式为R16_UNORM的纹理，看起来像是RDR2整个地图环境地形的归一化后的高度图：
 
@@ -450,6 +450,55 @@ pixel_shader (every pixel with screen position (x, y))
 
 从截帧来看，用来归一化Heightmap使用的MaxHeight大约为700~800米，BlendHeight大约为10米~20米。
 
-### Near Shadow Pass
+### Near Shadows Pass
 
-写不动了，我们阴影篇（下）再见哈。
+近距离阴影计算前后的对比如下：
+
+|                     Near Shadows Before                      |                      Near Shadows After                      |
+| :----------------------------------------------------------: | :----------------------------------------------------------: |
+| <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/near-shadow-before.png" alt="near-shadow-before" style="zoom:50%;" /> | <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/near-shadow-after.png" alt="near-shadow-after" style="zoom:50%;" /> |
+
+近距离阴影同样依次有几个计算来源：
+
+* Cloud Shadows
+* CSM Shadows
+* Raytraced Screen Space Shadows
+* Baked Shadows
+* Raytraced Terrain Shadow
+
+其中，其中四种来源的计算和Far Shadows几乎完全一样，在此不再赘述。
+
+#### CSM Shadows
+
+回忆在之前的各个Pass里，RDR2一共根据CSM Shadowmap生成了以下几张RT。接下来会使用CSM Shadowmap和这两张RT来计算平行光Cascade阴影：
+
+* CSM Min/Max Depth RT：格式为R16G16_FLOAT，分辨率为CSM Shadowmap的四分之一，其中R和G通道分别记录了32p（以第一级Cascade为单位，后面逐级递减）半径范围内CSM Shadow Depth的最小值和最大值
+* Wires & Particles Mask RT：格式为A8_UNORM，分辨率与CSM Shadowmap一致，其中A通道记录了电线和粒子等特殊物体的阴影混合度值
+
+之前提到RDR2的软阴影范围很大，这主要是因为它采样Shadowmap的半径很大。传统计算软阴影的方法，例如PCSS，需要先靠一个blocker search步骤来预估blocker到receiver之间的距离，并据此来得到filter size，最后再使用该值去计算PCF。可以看到，这种方法的采样个数取决于blocker search num和pcf filter num两者的和，开销比较大。RDR2高明的一点是，只使用一次采样循环即可完成整个软阴影的计算。它的核心思想是：
+
+* 在Shadowmap中以当前位置点为中心、半径为48（以第一级Cascade为单位，后面逐级等量换算）的圆盘，将其划分成32个圆环
+* 每个圆环采样一次Shadowmap（按照Vogel Disk分布），记录采样得到的阴影值Shadow[32]（值为0或1，靠一个32位的bitmask即可记录），以及这32个采样点的平均深度值AverageShadowDepth
+* 遍历32个采样点的Shadow[32]，如果该采样点位于阴影中，就叠加其对应的圆环面积，累计后得到所有阴影点覆盖的面积
+* 根据当前平行光的方向和Light Source Angle，将AverageShadowDepth换算成对应的软阴影采样半径（类似PCSS）
+* 将上一步的软阴影采样半径平方得到面积单位，与所有阴影点覆盖的面积做比值，该值即为软阴影值
+
+为了避免为每一个像素都进行上述完整的32次采样，RDR2依次使用以下优化来跳过上述完整的软阴影计算：
+
+* 采样半径为1范围内的4次Shadowmap，得到ApproxShadow
+* 采样CSM Min/Max Depth RT，判断MinDepth + MinBias ＜ Depth ≤ MaxDepth + MaxBias，是则继续向下判断，否则返回ApproxShadow
+* 判断NdotL ≤ 0 && ApproxShadow ＜ 0.0001，是则返回0，否则进行完整的软阴影计算
+
+注意以上优化并不能精确定位半影区域的像素，只能跳过那些百分之百位于全影或自阴影中的像素，而那些完全位于非阴影区域的像素仍然需要进行完整的软阴影计算，造成性能浪费，更通用的方法可以考虑提前生成一张低分辨率的Penumbra Mask，只标记出半影区域的像素。
+
+最后，采样Wires & Particles Mask RT来修改最终的Cascade Shadow：
+
+```c++
+CascadeShadow *= 1.0 - MaskRT.Sample(CascadeUV).a;
+```
+
+## 后记
+
+这里只分析了平行光的阴影（注意上述分辨率和采样数等数据都是基于最佳画质下的截帧数据，中配和低配数据会有所不同），实际还有Local Lights的阴影没有分析，[这篇博客](https://imgeself.github.io/posts/2020-06-19-graphics-study-rdr2/)提到了部分Local Lights的阴影技术，感兴趣的可以看看。
+
+终于填完了一个坑！下一篇我们再见！
