@@ -11,18 +11,11 @@ tags:
 
 ## 前言
 
-12月12日是这篇博客的预期发布时间，写Github博客的麻烦之一就是要用发布时间提前命名博客名称，但实际发布是12月18号，没错我鸽了一周，额高估了自己低估了截帧的复杂度，程序员预估的deadline果然容易过分乐观...另外推荐下之前博客评论里有小伙伴推荐的[Typora](https://typora.io/)，解救我于写GitHub博客插图片的痛苦。
-
----
-
-回到正题，我一直感叹RDR2的阴影渲染质量很高，数毛社有篇[分析视频](https://youtu.be/Dnzuh6I8gnM?list=PLrL3xbgUaxxjBKisD282x6YbGIGwowTCq&t=520)演示了RDR2的阴影表现，没玩过的小伙伴一定不要错过。RDR2的阴影有非常出色的Contact Shadow，即距离物体更近的阴影更加锐利，反之越远越模糊。这个模糊半径甚至和当前的天气状况有关，可谓丧心病狂：
+一直感叹RDR2的阴影渲染质量很高，数毛社有篇[分析视频](https://youtu.be/Dnzuh6I8gnM?list=PLrL3xbgUaxxjBKisD282x6YbGIGwowTCq&t=520)演示了RDR2的阴影表现，没玩过的小伙伴一定不要错过。RDR2的阴影有非常出色的Contact Shadow，即距离物体更近的阴影更加锐利，反之越远越模糊。这个模糊半径甚至和当前的天气状况有关。因此，这一篇我们就主要分析来RDR2是如何绘制平行光阴影的。
 
 |不同时间段阴影|不同时间段阴影|
 | :----------------------------------------------------------: | :----------------------------------------------------------: |
 | <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/contact-shadow0.png" alt="contact-shadow0"  /> | <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/contact-shadow1.png" alt="contact-shadow1"  /> |
-
-
-因此，这一篇我们就主要分析来RDR2是如何绘制平行光阴影的。其实本来想一篇博客就写完的，但没想到内容有点多，就分为上下篇吧。
 
 ---
 
@@ -42,7 +35,7 @@ tags:
   * 绘制近距离阴影
 
 
-其中，最后一个部分中绘制近距离阴影的计算我们放到下一篇讲。下面我们就来具体分析上述与阴影相关的各个Pass。
+下面我们就来具体分析上述与阴影相关的各个Pass。
 
 ## 处理Scene Stencil
 
