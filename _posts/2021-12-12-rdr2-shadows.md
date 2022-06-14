@@ -243,9 +243,9 @@ compute_shader (every pixel in Cascade0/1/2/3 in RT1 with position (x, y))
 
 <img src="http://candycat1992.github.io/img/in-post/2021-12-12-rdr2-shadows/shadow-dilation-erosion.png" alt="shadow-dilation-erosion" style="zoom:80%;" />
 
-## Directional Light Shadows
+## Apply Shadows
 
-RDR2的平行光阴影共包括两个部分：
+接下来就是把平行光阴影绘制到屏幕上并存储到GBufferC的A通道里。RDR2的平行光阴影共包括两个部分：
 
 * 不使用CSM的远距离阴影（Far Shadows Pass）
 * 使用CSM的近距离阴影（Near Shadows Pass）
@@ -502,3 +502,5 @@ CascadeShadow *= 1.0 - MaskRT.Sample(CascadeUV).a;
 这里只分析了平行光的阴影（注意上述分辨率和采样数等数据都是基于最佳画质下的截帧数据，中配和低配数据会有所不同），实际还有Local Lights的阴影没有分析，[这篇博客](https://imgeself.github.io/posts/2020-06-19-graphics-study-rdr2/)提到了部分Local Lights的阴影技术，感兴趣的可以看看。
 
 终于填完了一个坑！下一篇我们再见！
+
+[返回总篇](http://candycat1992.github.io/2021/12/09/rdr2-study/)
